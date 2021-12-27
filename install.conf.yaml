@@ -11,6 +11,7 @@
     ~/.Xresources: Xresources
     ~/.xinitrc: xinitrc
     ~/.bashrc: bashrc
+    ~/xconfigs: xconfigs
     /etc/intel-undervolt.conf: intel-undervolt.conf
 
 - shell:
