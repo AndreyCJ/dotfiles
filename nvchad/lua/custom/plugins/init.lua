@@ -40,6 +40,7 @@ return {
         "markdown",
         "bash",
         "lua",
+        "vue"
       },
     },
   },
@@ -67,7 +68,7 @@ return {
 
   --------------------------------------------- custom plugins ----------------------------------------------
 
-  -- autoclose tags in html
+  -- autoclose tags in html, jsx only
   ["windwp/nvim-ts-autotag"] = {
     ft = { "html", "vue" },
     after = "nvim-treesitter",
