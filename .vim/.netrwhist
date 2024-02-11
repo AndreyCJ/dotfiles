@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
-let g:netrw_dirhist_7='/home/a/dotfiles/.config/i3'
-let g:netrw_dirhist_6='/home/a/dotfiles/.config'
-let g:netrw_dirhist_5='/home/a/dotfiles/.config/i3/screen-layout'
-let g:netrw_dirhist_4='/home/a/dotfiles/.config/i3'
-let g:netrw_dirhist_3='/home/a/dotfiles/.config/i3/screen-layout'
-let g:netrw_dirhist_2='/home/a/dotfiles/.config/i3'
-let g:netrw_dirhist_1='/home/a/dotfiles/.config'
