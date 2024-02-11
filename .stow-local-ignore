@@ -1,2 +1,10 @@
 .git
 
+^/README.md
+^/LICENSE
+^/CODE_OF_CONDUCT.md
+^/CONTRIBUTING.md
+^/CHANGELOG.md
+^/docs
+
+
