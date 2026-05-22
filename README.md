@@ -27,3 +27,18 @@ then use GNU stow to create symlinks
 ```
 $ stow .
 ```
+
+
+### Creating a specific symlink to the config dir:
+
+first 
+```
+$ mv ~/.config/$dir ~/dotfiles/.config
+```
+
+then
+
+```
+$ ln -s ~/dotfiles/.config/$dir ~/.config/$dir
+```
+

@@ -6,7 +6,7 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family      InconsolataGo Nerd Font 
+font_family      Inconsolata LGC Nerd Font 
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -18,13 +18,14 @@ bold_italic_font auto
 #: auto on macOS, the priority of bold fonts is semi-bold, bold,
 #: heavy. Setting them manually is useful for font families that have
 #: many weight variants like Book, Medium, Thick, etc. For example::
-
-#:     font_family      Operator Mono Book
+#
+#
+# font_family      Consolas
 #:     bold_font        Operator Mono Medium
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 15
+font_size 13
 
 #: Font size (in pts)
 
@@ -2350,6 +2351,6 @@ map ctrl+f launch --type=overlay --stdin-source=@screen_scrollback /opt/homebrew
 
 
 # BEGIN_KITTY_THEME
-# Harper
+# Hardcore
 include current-theme.conf
 # END_KITTY_THEME

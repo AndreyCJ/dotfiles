@@ -3,13 +3,18 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:~/.spoof-dpi/bin
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# Set name of the theme to load --- if set to "random", it will load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
- #ZSH_THEME="robbyrussell"
- ZSH_THEME="geoffgarside"
+  ZSH_THEME="geoffgarside"
+ # ZSH_THEME="geoffgarside"
+ # ZSH_THEME="robbyrussell"
+ # ZSH_THEME="xxf"
+ # ZSH_THEME="af-magic"
+ # ZSH_THEME="lambda"
+ # ZSH_THEME="eastwood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,7 +77,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions colorize grc tmux)
+plugins=(git z zsh-syntax-highlighting zsh-autosuggestions zsh-completions colorize grc tmux macos fzf-zsh-plugin)
 
 ZSH_COLORIZE_STYLE="colorful"
 
@@ -87,6 +92,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # bindkey '^I' autosuggest-accept
+bindkey -r '^R'
+
 
 
 if type brew &>/dev/null; then
@@ -123,4 +130,19 @@ export NVM_DIR="$HOME/.nvm"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+#
 
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+export PATH=$ANDROID_HOME/emulator:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/a.dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/a.dev/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/a.dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/a.dev/google-cloud-sdk/completion.zsh.inc'; fi
