@@ -4,6 +4,9 @@ set -e
 
 DOTFILES="$HOME/Dotfiles"
 
+echo "Applying macOS settings..."
+"$DOTFILES/macos/defaults.sh"
+
 echo "Installing Homebrew..."
 
 if ! command -v brew >/dev/null 2>&1; then
