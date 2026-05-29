@@ -1,0 +1,177 @@
+{
+  "workbench.startupEditor": "none",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "editor.smoothScrolling": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontFamily": "'FiraMono Nerd Font', 'Inconsolata Nerd Font', 'Hack NF', Menlo, Consolas, sans-serif",
+  "editor.fontSize": 15,
+  "editor.fontLigatures": false,
+  "debug.console.fontSize": 15,
+  "markdown.preview.fontSize": 15,
+  "terminal.integrated.fontSize": 15,
+  "editor.minimap.enabled": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "eslint.format.enable": false,
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "sync.gist": "165df0597675586e510dd4a1882885d2",
+  "editor.cursorBlinking": "smooth",
+  "workbench.editor.highlightModifiedTabs": true,
+
+  // Vim settings
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.camelCaseMotion.enable": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<ESC>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "extensions.ignoreRecommendations": false,
+  "liveServer.settings.donotVerifyTags": true,
+  "eslint.validate": ["javascriptreact", "javascript", "vue"],
+  "workbench.sideBar.location": "right",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "One Dark italic",
+        "scope": [
+          "comment",
+          "entity.other.attribute-name",
+          "keyword",
+          "markup.underline.link",
+          "storage.modifier",
+          "storage.type",
+          "string.url",
+          "variable.language.super",
+          "variable.language.this"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "name": "One Dark italic reset",
+        "scope": [
+          "keyword.operator",
+          "keyword.other.type",
+          "storage.modifier.import",
+          "storage.modifier.package",
+          "storage.type.built-in",
+          "storage.type.function.arrow",
+          "storage.type.generic",
+          "storage.type.java",
+          "storage.type.primitive"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.cursorStyle": "line",
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "editor.insertSpaces": false,
+  "editor.detectIndentation": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "[html]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // },
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // },
+  // "[typescript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // },
+  // "[vue]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never",
+      "source.organizeImports": "never"
+    }
+  },
+  "[python]": {
+    "editor.defaultFormatter": null,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.formatOnType": true
+  },
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.matchBrackets": "never",
+  "editor.accessibilitySupport": "off",
+  "git.autofetch": true,
+  "window.commandCenter": false,
+  "window.density.editorTabHeight": "compact",
+  "i18n-ally.enabledParsers": ["ts", "js", "json", "yaml"],
+  "i18n-ally.localesPaths": ["src/locales", "locales"],
+  "i18n-ally.sourceLanguage": "english",
+  "workbench.colorTheme": "Vitesse Dark Soft",
+  "codeium.enableConfig": {
+    "*": true,
+    "markdown": true,
+    "go.mod": true
+  },
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "codeium.enableCodeLens": false,
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": true,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "repositories": false,
+    "searchAndCompare": false,
+    "launchpad": true
+  },
+  "chat.mcp.gallery.enabled": true,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "extensions.autoUpdate": false,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
+}

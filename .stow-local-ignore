@@ -1,10 +1,12 @@
 .git
+.DS_Store
+
+*.swp
+*.swo
+*.tmp
 
 ^/README.md
-^/LICENSE
-^/CODE_OF_CONDUCT.md
-^/CONTRIBUTING.md
 ^/CHANGELOG.md
 ^/docs
-
-
+^/bin
+^/macos

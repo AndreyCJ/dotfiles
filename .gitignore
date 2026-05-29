@@ -12,9 +12,6 @@
 .env
 .env.*
 
-# SSH (usually never commit)
-.ssh/
-
 # Temporary files
 tmp/
 .cache/
