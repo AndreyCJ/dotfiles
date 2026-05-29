@@ -94,7 +94,7 @@
       }
     ]
   },
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "js.ts.updateImportsOnFileMove.enabled": "always",
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",

@@ -1,18 +1,15 @@
 # Installation
 
-xcode-select --install
+1. `xcode-select --install`
 
-git clone git@github.com:you/dotfiles.git ~/Dotfiles
+2. `git clone git@github.com:AndreyCJ/dotfiles.git ~/Dotfiles`
 
-cd ~/Dotfiles
-
-./install.sh
-
----
+3. `~/Dotfiles/bin/install.sh`
 
 # Terminal
 
 fzf:
-- Ctrl+R   → поиск по history
-- Ctrl+T   → поиск файлов
-- Alt+C    → поиск директорий
+
+- Ctrl+R → поиск по history
+- Ctrl+T → поиск файлов
+- Alt+C → поиск директорий

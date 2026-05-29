@@ -30,10 +30,6 @@ echo "Applying symlinks with Stow..."
 
 cd "$DOTFILES"
 
-stow zsh
-stow git
-stow tmux
-stow starship
-stow ssh
+stow .
 
 echo "Done."
