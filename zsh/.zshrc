@@ -1,6 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="/opt/homebrew/bin:$PATH"
 # export PATH="$HOME/Dotfiles/bin:$PATH"
+export PATH="$(go env GOPATH)/bin:$PATH"
 
 ZSH_THEME="geoffgarside"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20

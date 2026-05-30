@@ -146,7 +146,7 @@
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.unicodeHighlight.ambiguousCharacters": false,
-  "editor.matchBrackets": "never",
+  "editor.matchBrackets": false,
   "editor.accessibilitySupport": "off",
   "git.autofetch": true,
   "window.commandCenter": false,

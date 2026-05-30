@@ -59,7 +59,12 @@ cursor-style = block_hollow
 cursor-style-blink = true
 font-size = 15
 font-family = FiraMono Nerd Font
-background-opacity = 0.9
+background-opacity = 0.85
 background-blur = 10
+bell-features = title, no-attention
+macos-icon = retro
+quick-terminal-position = top
+quick-terminal-size = 65%
+quick-terminal-space-behavior = remain
 
 keybind = global:cmd+;=toggle_quick_terminal
