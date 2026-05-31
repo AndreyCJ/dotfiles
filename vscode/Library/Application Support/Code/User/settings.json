@@ -74,7 +74,7 @@
   "editor.wordWrap": "off",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "editor.detectIndentation": true,
+  "editor.detectIndentation": false,
   // "editor.defaultFormatter": "esbenp.prettier-vscode",
 
   // -- Font settings
@@ -168,8 +168,6 @@
     "go.mod": true,
   },
   "codeium.enableCodeLens": false,
-  "codeium.disableTabJump": true,
-  "codeium.aggressiveShutdown": false,
 
   // -- i18n settings
   "i18n-ally.enabledParsers": ["ts", "js", "json", "yaml"],
