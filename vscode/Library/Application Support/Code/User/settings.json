@@ -1,17 +1,27 @@
 {
   "workbench.startupEditor": "none",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.sideBar.location": "right",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.colorTheme": "Vitesse Dark Soft",
+
+	"window.commandCenter": false,
+  "window.density.editorTabHeight": "compact",
+
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
+
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.matchBrackets": "near",
+  "editor.accessibilitySupport": "off",
+	"editor.inlineSuggest.enabled": false,
+  "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.smoothScrolling": true,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "'FiraMono Nerd Font', 'Inconsolata Nerd Font', 'Hack NF', Menlo, Consolas, sans-serif",
-  "editor.fontSize": 15,
-  "editor.fontLigatures": false,
-  "debug.console.fontSize": 15,
-  "markdown.preview.fontSize": 15,
-  "terminal.integrated.fontSize": 15,
   "editor.minimap.enabled": false,
-  "workbench.iconTheme": "material-icon-theme",
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always",
     "source.fixAll.eslint": "explicit",
@@ -20,42 +30,7 @@
   "eslint.format.enable": false,
   "files.eol": "\n",
   "editor.tabSize": 2,
-  "sync.gist": "165df0597675586e510dd4a1882885d2",
   "editor.cursorBlinking": "smooth",
-  "workbench.editor.highlightModifiedTabs": true,
-
-  // Vim settings
-  "vim.easymotion": true,
-  "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
-  "vim.camelCaseMotion.enable": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "k"],
-      "after": ["<ESC>"]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
-    },
-    {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
-    }
-  ],
-  "vim.leader": "<space>",
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
-  },
-  "extensions.ignoreRecommendations": false,
-  "liveServer.settings.donotVerifyTags": true,
-  "eslint.validate": ["javascriptreact", "javascript", "vue"],
-  "workbench.sideBar.location": "right",
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -94,22 +69,35 @@
       }
     ]
   },
-  "js.ts.updateImportsOnFileMove.enabled": "always",
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
   "editor.insertSpaces": false,
   "editor.detectIndentation": false,
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+	// -- Font settings
+  "editor.fontFamily": "'FiraMono Nerd Font', 'Inconsolata Nerd Font', 'Hack NF', Menlo, Consolas, sans-serif",
+  "editor.fontSize": 15,
+  "editor.fontLigatures": false,
+  "debug.console.fontSize": 15,
+  "markdown.preview.fontSize": 15,
+  "terminal.integrated.fontSize": 15,
+
+	// -- Misc
+  "git.autofetch": true,
+  "extensions.ignoreRecommendations": false,
+  "extensions.autoUpdate": false,
+  "eslint.validate": ["javascriptreact", "javascript", "vue"],
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
   "diffEditor.ignoreTrimWhitespace": false,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
-  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "chat.mcp.gallery.enabled": true,
+
+	// -- Settings per file type
   // "[html]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // },
-  // "[javascript]": {
   //   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // },
   // "[typescript]": {
@@ -143,40 +131,64 @@
     "editor.tabSize": 4,
     "editor.formatOnType": true
   },
-  "editor.formatOnSave": true,
-  "editor.guides.bracketPairs": true,
-  "editor.unicodeHighlight.ambiguousCharacters": false,
-  "editor.matchBrackets": false,
-  "editor.accessibilitySupport": "off",
-  "git.autofetch": true,
-  "window.commandCenter": false,
-  "window.density.editorTabHeight": "compact",
-  "i18n-ally.enabledParsers": ["ts", "js", "json", "yaml"],
-  "i18n-ally.localesPaths": ["src/locales", "locales"],
-  "i18n-ally.sourceLanguage": "english",
-  "workbench.colorTheme": "Vitesse Dark Soft",
-  "codeium.enableConfig": {
+
+	// -- Vim settings
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.camelCaseMotion.enable": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<ESC>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+
+	// -- Codeium settings
+	"codeium.enableConfig": {
     "*": true,
     "markdown": true,
-    "go.mod": true
+    "go.mod": true,
   },
-  "editor.gotoLocation.multipleDefinitions": "goto",
   "codeium.enableCodeLens": false,
-  "gitlens.views.scm.grouped.views": {
-    "commits": true,
-    "branches": true,
-    "remotes": true,
-    "stashes": true,
-    "tags": true,
-    "worktrees": true,
-    "contributors": true,
-    "repositories": false,
-    "searchAndCompare": false,
-    "launchpad": true
-  },
-  "chat.mcp.gallery.enabled": true,
-  "workbench.secondarySideBar.defaultVisibility": "hidden",
-  "extensions.autoUpdate": false,
-  "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
+	"codeium.disableTabJump": true,
+	"codeium.aggressiveShutdown": false,
+
+	// -- i18n settings
+	"i18n-ally.enabledParsers": ["ts", "js", "json", "yaml"],
+  "i18n-ally.localesPaths": ["src/locales", "locales"],
+  "i18n-ally.sourceLanguage": "english",
+
+	// -- GitLens settings
+  // "gitlens.views.scm.grouped.views": {
+  //   "commits": true,
+  //   "branches": true,
+  //   "remotes": true,
+  //   "stashes": true,
+  //   "tags": true,
+  //   "worktrees": true,
+  //   "contributors": true,
+  //   "repositories": false,
+  //   "searchAndCompare": false,
+  //   "launchpad": true
+  // },
+  // "gitlens.ai.model": "vscode",
+  // "gitlens.ai.vscode.model": "copilot:gpt-4.1",
 }
