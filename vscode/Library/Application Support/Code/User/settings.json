@@ -19,6 +19,7 @@
   "editor.accessibilitySupport": "off",
   "editor.inlineSuggest.enabled": false,
   "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.suggest.matchOnWordStartOnly": true,
   "editor.smoothScrolling": true,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.minimap.enabled": false,

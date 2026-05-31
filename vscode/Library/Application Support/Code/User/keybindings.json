@@ -11,17 +11,14 @@
     "when": "editorHasSignatureHelpProvider && editorTextFocus",
   },
   {
-    "key": "alt+c",
+    "key": "ctrl+j",
     "command": "editor.action.inlineSuggest.hide",
   },
-  // {
-  //   "key": "ctrl+j",
-  //   "command": "cursorDown",
-  // },
-  // {
-  //   "key": "ctrl+k",
-  //   "command": "cursorUp",
-  // },
+  {
+    "key": "ctrl+j",
+    "command": "hideSuggestWidget",
+    "when": "suggestWidgetVisible",
+  },
 
   // -- Codeium
   {
