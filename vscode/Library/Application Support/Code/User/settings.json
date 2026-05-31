@@ -6,7 +6,7 @@
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.colorTheme": "Vitesse Dark Soft",
 
-	"window.commandCenter": false,
+  "window.commandCenter": false,
   "window.density.editorTabHeight": "compact",
 
   "explorer.confirmDragAndDrop": false,
@@ -15,9 +15,9 @@
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.unicodeHighlight.ambiguousCharacters": false,
-  "editor.matchBrackets": "near",
+  "editor.matchBrackets": "never",
   "editor.accessibilitySupport": "off",
-	"editor.inlineSuggest.enabled": false,
+  "editor.inlineSuggest.enabled": false,
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.smoothScrolling": true,
   "editor.cursorSmoothCaretAnimation": "on",
@@ -25,11 +25,10 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always",
     "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
+    "source.fixAll.stylelint": "explicit",
   },
   "eslint.format.enable": false,
   "files.eol": "\n",
-  "editor.tabSize": 2,
   "editor.cursorBlinking": "smooth",
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -44,11 +43,11 @@
           "storage.type",
           "string.url",
           "variable.language.super",
-          "variable.language.this"
+          "variable.language.this",
         ],
         "settings": {
-          "fontStyle": "italic"
-        }
+          "fontStyle": "italic",
+        },
       },
       {
         "name": "One Dark italic reset",
@@ -61,23 +60,24 @@
           "storage.type.function.arrow",
           "storage.type.generic",
           "storage.type.java",
-          "storage.type.primitive"
+          "storage.type.primitive",
         ],
         "settings": {
-          "fontStyle": ""
-        }
-      }
-    ]
+          "fontStyle": "",
+        },
+      },
+    ],
   },
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "editor.insertSpaces": false,
-  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
   // "editor.defaultFormatter": "esbenp.prettier-vscode",
 
-	// -- Font settings
+  // -- Font settings
   "editor.fontFamily": "'FiraMono Nerd Font', 'Inconsolata Nerd Font', 'Hack NF', Menlo, Consolas, sans-serif",
   "editor.fontSize": 15,
   "editor.fontLigatures": false,
@@ -85,7 +85,7 @@
   "markdown.preview.fontSize": 15,
   "terminal.integrated.fontSize": 15,
 
-	// -- Misc
+  // -- Misc
   "git.autofetch": true,
   "extensions.ignoreRecommendations": false,
   "extensions.autoUpdate": false,
@@ -96,7 +96,7 @@
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "chat.mcp.gallery.enabled": true,
 
-	// -- Settings per file type
+  // -- Settings per file type
   // "[html]": {
   //   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // },
@@ -107,32 +107,32 @@
   //   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // },
   "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "vscode.typescript-language-features",
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[go]": {
     "editor.defaultFormatter": "golang.go",
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
       "source.fixAll": "never",
-      "source.organizeImports": "never"
-    }
+      "source.organizeImports": "never",
+    },
   },
   "[python]": {
     "editor.defaultFormatter": null,
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
   },
 
-	// -- Vim settings
+  // -- Vim settings
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -142,41 +142,41 @@
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
-      "after": ["<ESC>"]
-    }
+      "after": ["<ESC>"],
+    },
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "d"],
-      "after": ["d", "d"]
+      "after": ["d", "d"],
     },
     {
       "before": ["<C-n>"],
-      "commands": [":nohl"]
-    }
+      "commands": [":nohl"],
+    },
   ],
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
-    "<C-f>": false
+    "<C-f>": false,
   },
 
-	// -- Codeium settings
-	"codeium.enableConfig": {
+  // -- Codeium settings
+  "codeium.enableConfig": {
     "*": true,
     "markdown": true,
     "go.mod": true,
   },
   "codeium.enableCodeLens": false,
-	"codeium.disableTabJump": true,
-	"codeium.aggressiveShutdown": false,
+  "codeium.disableTabJump": true,
+  "codeium.aggressiveShutdown": false,
 
-	// -- i18n settings
-	"i18n-ally.enabledParsers": ["ts", "js", "json", "yaml"],
+  // -- i18n settings
+  "i18n-ally.enabledParsers": ["ts", "js", "json", "yaml"],
   "i18n-ally.localesPaths": ["src/locales", "locales"],
   "i18n-ally.sourceLanguage": "english",
 
-	// -- GitLens settings
+  // -- GitLens settings
   // "gitlens.views.scm.grouped.views": {
   //   "commits": true,
   //   "branches": true,
