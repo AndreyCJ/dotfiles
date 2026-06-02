@@ -52,6 +52,7 @@
 
 #Chalk Miasma Ciapre Gruvbox Dark Framer Elemental 12-bit Rainbow
 theme = Adventure 
+macos-icon = retro 
 clipboard-read = allow
 clipboard-write = allow
 shell-integration-features = no-cursor
@@ -62,7 +63,6 @@ font-family = FiraMono Nerd Font
 background-opacity = 0.85
 background-blur = 10
 bell-features = title, no-attention
-macos-icon = retro
 quick-terminal-position = top
 quick-terminal-size = 65%
 quick-terminal-space-behavior = remain
