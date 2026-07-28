@@ -69,6 +69,13 @@ setopt HIST_REDUCE_BLANKS
 # Brew plugins 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(mise activate zsh)"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<

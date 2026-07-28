@@ -79,16 +79,16 @@
 
   // -- Font settings
   "editor.fontFamily": "'FiraMono Nerd Font', 'Inconsolata Nerd Font', 'Hack NF', Menlo, Consolas, sans-serif",
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.fontLigatures": false,
-  "debug.console.fontSize": 15,
+  "debug.console.fontSize": 14,
   "markdown.preview.fontSize": 15,
-  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.fontSize": 14,
 
   // -- Misc
   "git.autofetch": true,
   "extensions.ignoreRecommendations": false,
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "off",
   "eslint.validate": ["javascriptreact", "javascript", "vue"],
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
@@ -167,6 +167,11 @@
   "i18n-ally.enabledParsers": ["ts", "js", "json", "yaml"],
   "i18n-ally.localesPaths": ["src/locales", "locales"],
   "i18n-ally.sourceLanguage": "english",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.tabs.enabled": false,
+  "workbench.colorTheme": "Gruvbox Light Soft",
 
   // -- GitLens settings
   // "gitlens.views.scm.grouped.views": {
