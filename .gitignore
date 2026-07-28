@@ -13,7 +13,9 @@ tmux/.config/tmux/plugins
 
 # Secrets
 .env
-.env.*
+
+# Wakatime
+wakatime/.wakatime.cfg
 
 # Temporary files
 tmp/

@@ -53,6 +53,11 @@ alias ...="cd ../.."
 alias ~="cd ~"
 alias c="clear"
 
+# Load personal environment variables
+if [[ -f "$HOME/Dotfiles/.env" ]]; then
+    source "$HOME/Dotfiles/.env"
+fi
+
 # modern ls
 alias ls="eza"
 # detailed list

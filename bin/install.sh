@@ -4,6 +4,8 @@ set -e
 
 DOTFILES="$HOME/Dotfiles"
 
+source "$DOTFILES"
+
 echo "Applying macOS settings..."
 "$DOTFILES/macos/defaults.sh"
 
@@ -34,5 +36,7 @@ echo "Applying symlinks with Stow..."
 cd "$DOTFILES"
 
 stow .
+
+envsubst < "$DOTFILES/wakatime/.wakatime.cfg.template" > "$DOTFILES/wakatime/.wakatime.cfg"
 
 echo "Done."
