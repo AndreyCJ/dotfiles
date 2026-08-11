@@ -1,11 +1,8 @@
 {
   "workbench.startupEditor": "none",
   "workbench.editor.highlightModifiedTabs": true,
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
   "workbench.secondarySideBar.defaultVisibility": "hidden",
-
-  "window.commandCenter": false,
   "window.density.editorTabHeight": "compact",
 
   "explorer.confirmDragAndDrop": false,
@@ -75,7 +72,6 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
-  // "editor.defaultFormatter": "esbenp.prettier-vscode",
 
   // -- Font settings
   "editor.fontFamily": "'FiraMono Nerd Font', 'Inconsolata Nerd Font', 'Hack NF', Menlo, Consolas, sans-serif",
@@ -96,9 +92,10 @@
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "chat.mcp.gallery.enabled": true,
 
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   // -- Settings per file type
   "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -110,27 +107,21 @@
   },
   "[go]": {
     "editor.defaultFormatter": "golang.go",
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll": "never",
       "source.organizeImports": "never",
     },
   },
-  "[python]": {
-    "editor.defaultFormatter": null,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 4,
-    "editor.formatOnType": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  // "[html]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // },
-  // "[typescript]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // },
-  // "[vue]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
 
   // -- Vim settings
   "vim.easymotion": true,
@@ -167,11 +158,15 @@
   "i18n-ally.enabledParsers": ["ts", "js", "json", "yaml"],
   "i18n-ally.localesPaths": ["src/locales", "locales"],
   "i18n-ally.sourceLanguage": "english",
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "terminal.integrated.tabs.enabled": false,
-  "workbench.colorTheme": "Gruvbox Light Soft",
+  "chat.titleBar.openInAgentsWindow.enabled": false,
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.browser.showInTitleBar": true,
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Dark 2026",
+  "workbench.preferredLightColorTheme": "Gruvbox Light Soft",
+  "workbench.iconTheme": "vscode-icons"
 
   // -- GitLens settings
   // "gitlens.views.scm.grouped.views": {

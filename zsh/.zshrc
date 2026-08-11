@@ -1,5 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
 # export PATH="$HOME/Dotfiles/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
 

@@ -37,6 +37,9 @@ cd "$DOTFILES"
 
 stow .
 
+
+echo "Applying env variables for configs..."
+
 envsubst < "$DOTFILES/wakatime/.wakatime.cfg.template" > "$DOTFILES/wakatime/.wakatime.cfg"
 
 echo "Done."
