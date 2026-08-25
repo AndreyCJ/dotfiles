@@ -51,7 +51,6 @@
 
 
 #Chalk Miasma Ciapre Gruvbox Dark Framer Elemental 12-bit Rainbow
-macos-icon = retro 
 theme = Adventure 
 clipboard-read = allow
 clipboard-write = allow
@@ -68,4 +67,6 @@ quick-terminal-size = 65%
 quick-terminal-space-behavior = remain
 
 keybind = global:cmd+;=toggle_quick_terminal
+
+macos-icon = retro 
 
