@@ -13,19 +13,34 @@ persistent-workspaces = []
 # i3 doesn't have "normalizations" feature that why we disable them here.
 # But the feature is very helpful.
 # Normalizations eliminate all sorts of weird tree configurations that don't make sense.
-# Give normalizations a chance and enable them back.
-enable-normalization-flatten-containers = false
-enable-normalization-opposite-orientation-for-nested-containers = false
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
 
-# Mouse follows focus when focused monitor changes
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
+# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
+# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+automatically-unhide-macos-hidden-apps = false
+
+
+# Mouse follows focus (Hyprland-like behavior)
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center']
 
-gaps.inner.horizontal = 0 
-gaps.inner.vertical =   0
-gaps.outer.left =       0
-gaps.outer.bottom =     0
-gaps.outer.top =        0
-gaps.outer.right =      0
+gaps.inner.horizontal = 4 
+gaps.inner.vertical =   4
+gaps.outer.left =       4
+gaps.outer.bottom =     4
+gaps.outer.top =        4
+gaps.outer.right =      4
 
 [mode.main.binding]
     # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
@@ -52,14 +67,16 @@ gaps.outer.right =      0
 
     # Consider using 'join-with' command as a 'split' replacement if you want to enable
     # normalizations
-    alt-b = 'split horizontal'
-    alt-v = 'split vertical'
+    alt-b = 'join-with right'
+    alt-v = 'join-with down'
 
     alt-f = 'fullscreen'
 
     alt-s = 'layout v_accordion' # 'layout stacking' in i3
     alt-w = 'layout h_accordion' # 'layout tabbed' in i3
     alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+    alt-comma = 'layout accordion horizontal vertical'
+
 
     alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
 

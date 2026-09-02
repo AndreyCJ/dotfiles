@@ -2,6 +2,7 @@
   "workbench.startupEditor": "none",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.sideBar.location": "right",
+  "workbench.panel.opensMaximized": "always",
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "window.density.editorTabHeight": "compact",
 
