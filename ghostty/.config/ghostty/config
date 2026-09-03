@@ -68,5 +68,6 @@ quick-terminal-space-behavior = remain
 
 keybind = global:cmd+;=toggle_quick_terminal
 
+# macOS only
 macos-icon = retro 
 

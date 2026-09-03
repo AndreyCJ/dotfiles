@@ -1,6 +1,13 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
+# Homebrew (macOS only)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/sbin:$PATH"
+fi
+# Linuxbrew (if used on Linux)
+if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
+  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+fi
 # export PATH="$HOME/Dotfiles/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
 
@@ -54,9 +61,13 @@ alias ...="cd ../.."
 alias ~="cd ~"
 alias c="clear"
 
-# Load personal environment variables
+# Load personal environment variables (case-insensitive for Linux/macOS checkout)
 if [[ -f "$HOME/Dotfiles/.env" ]]; then
     source "$HOME/Dotfiles/.env"
+elif [[ -f "$HOME/dotfiles/.env" ]]; then
+    source "$HOME/dotfiles/.env"
+elif [[ -f "$(dirname "$0")/../.env" ]]; then
+    source "$(dirname "$0")/../.env"
 fi
 
 # modern ls
@@ -72,13 +83,28 @@ setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
 
-# Brew plugins 
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
-eval "$(mise activate zsh)"
+# Tool init (cross-platform)
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zsh plugins (Homebrew on macOS, system paths on Linux)
+if command -v brew >/dev/null 2>&1; then
+  source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null || true
+  source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2>/dev/null || true
+else
+  # Arch Linux system paths
+  [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+  [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # >>> grok installer >>>
 export PATH="$HOME/.grok/bin:$PATH"

@@ -1,0 +1,42 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+;",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible",
+  },
+  {
+    "key": "shift+cmd+space",
+    "command": "editor.action.triggerParameterHints",
+    "when": "editorHasSignatureHelpProvider && editorTextFocus",
+  },
+  {
+    "key": "ctrl+j",
+    "command": "editor.action.inlineSuggest.hide",
+  },
+  {
+    "key": "ctrl+j",
+    "command": "hideSuggestWidget",
+    "when": "suggestWidgetVisible",
+  },
+
+  // -- Codeium
+  {
+    "key": "cmd+i",
+    "command": "codeium.openCodeiumCommand",
+    "when": "codeium.commandEnabled && editorTextFocus && !inlineSuggestionsVisible",
+  },
+  {
+    "key": "alt+\\",
+    "command": "editor.action.inlineSuggest.trigger",
+    "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible",
+  },
+  {
+    "key": "alt+]",
+    "command": "codeium.showNextCompletion",
+  },
+  {
+    "key": "alt+[",
+    "command": "codeium.showPreviousCompletion",
+  },
+]
