@@ -86,17 +86,33 @@ else
   mkdir -p "$HOME/.config/Code/User"
 
   # Backup existing configs that would conflict with stow (repo is source of truth)
+  # Fresh Omarchy has regular files where dotfiles wants symlinks — backup then remove so stow can link
   echo "Backing up existing configs that conflict with repo (fresh Omarchy)..."
   BACKUP_DIR="$HOME/.config-backup-$(date +%Y%m%d-%H%M%S)"
   mkdir -p "$BACKUP_DIR"
-  for f in "$HOME/.config/ghostty/config" "$HOME/.config/starship.toml" "$HOME/.config/tmux/tmux.conf" "$HOME/.config/Code/User/settings.json" "$HOME/.config/Code/User/keybindings.json"; do
-    if [[ -f "$f" && ! -L "$f" ]]; then
+  # All files/dirs that will be stowed on Linux
+  CONFLICTS=(
+    "$HOME/.config/ghostty/config"
+    "$HOME/.config/starship.toml"
+    "$HOME/.config/tmux/tmux.conf"
+    "$HOME/.config/Code/User/settings.json"
+    "$HOME/.config/Code/User/keybindings.json"
+    "$HOME/.zshrc"
+    "$HOME/.ssh/config"
+    "$HOME/.config/hypr"
+    "$HOME/.config/omarchy"
+    "$HOME/.gitconfig"
+    "$HOME/.vimrc"
+  )
+  for f in "${CONFLICTS[@]}"; do
+    if [[ -e "$f" && ! -L "$f" ]]; then
       echo "  Backing up $f -> $BACKUP_DIR/"
       mkdir -p "$BACKUP_DIR/$(dirname "${f#$HOME/}")"
       cp -a "$f" "$BACKUP_DIR/${f#$HOME/}"
+      # Remove original so stow can create symlink
+      rm -rf "$f"
     fi
   done
-  # Also handle hypr/omarchy if they were already stowed? Keep but ensure stow handles
   if [[ -d "$BACKUP_DIR" ]] && [[ -z "$(ls -A "$BACKUP_DIR" 2>/dev/null)" ]]; then
     rmdir "$BACKUP_DIR" 2>/dev/null || true
   else

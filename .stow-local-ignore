@@ -14,7 +14,8 @@
 ^/docs
 ^/bin
 ^/macos
-# Linux: don't stow macOS icon
-Ghostty\.icns
+# Linux: don't stow macOS icon (ignore Ghostty.icns anywhere)
+.*Ghostty\.icns
+.*\.icns
 # Aerospace backup file
 #\.aerospace\.toml#
