@@ -25,10 +25,10 @@ hl.config({
     --
     --     -- Turn off mouse acceleration (default: adaptive).
     --     accel_profile = "flat",
-  },
-  touchpad = {
-    --       -- Use natural (inverse) scrolling.
-   -- natural_scroll = true,
+    --
+    touchpad = {
+      -- Use natural (inverse) scrolling.
+      natural_scroll = true,
     --
     --       -- Use two-finger clicks for right-click instead of lower-right corner.
     --       clickfinger_behavior = true,
@@ -42,12 +42,16 @@ hl.config({
     --       -- Left-click-and-drag with three fingers.
     --       drag_3fg = 1,
     --     },
+    },
   },
 })
 
 -- App-specific touchpad scroll speeds.
 -- o.window("(Alacritty|kitty|foot)", { scroll_touchpad = 1.5 })
 -- o.window("com.mitchellh.ghostty", { scroll_touchpad = 0.2 })
+
+-- Completely disable TrackPoint (ThinkPad PS/2 pass-through, shows as ps/2-generic-mouse).
+hl.device({ name = "ps/2-generic-mouse", enabled = false })
 
 -- Enable touchpad gestures for changing workspaces.
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Gestures/
