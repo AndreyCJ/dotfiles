@@ -57,16 +57,16 @@
     "position": "top",
     "transparent": true
   },
+  "cloneSourceRestores": [
+    "gr4vty.menu"
+  ],
+  "disabledPlugins": [
+    "omarchy.menu"
+  ],
   "idle": {
     "lock": 300,
     "screensaver": 150
   },
   "plugins": [],
-  "version": 1,
-  "disabledPlugins": [
-    "omarchy.menu"
-  ],
-  "cloneSourceRestores": [
-    "gr4vty.menu"
-  ]
+  "version": 1
 }

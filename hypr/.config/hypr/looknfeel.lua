@@ -5,8 +5,7 @@
 --
 hl.config({
   general = {
-    -- No gaps between windows or borders.
-    gaps_in = 4,
+    gaps_in = 2,
     gaps_out = 4,
     border_size = 0,
 
@@ -19,8 +18,8 @@ hl.config({
     rounding = 8,
 
     -- The 0.05 gap is what marks the focused window.
-    active_opacity = 0.98,
-    inactive_opacity = 0.85,
+    active_opacity = 0.95,
+    inactive_opacity = 0.80,
 
     -- Translucency without blur makes text unreadable over these wallpapers.
     blur = {
