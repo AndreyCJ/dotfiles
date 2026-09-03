@@ -30,10 +30,10 @@
 
    or just
 
-````bash
-  cd ~/dotfiles
-  stow .
-```
+   ```bash
+    cd ~/dotfiles
+    stow .
+   ```
 
 ## Packages
 
@@ -49,4 +49,3 @@ fzf:
 - Ctrl+R → search history
 - Ctrl+T → search files
 - Alt+C → search dirs
-````
