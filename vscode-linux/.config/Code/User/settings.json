@@ -1,4 +1,5 @@
 { "workbench.colorTheme": "Omarchy",
+  "update.mode": "none",
   "workbench.startupEditor": "none",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.sideBar.location": "right",
@@ -128,7 +129,7 @@
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
+  "vim.useCtrlKeys": false,
   "vim.hlsearch": true,
   "vim.camelCaseMotion.enable": true,
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -145,6 +146,10 @@
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false,
+    "<C-o>": false,
+    "<C-p>": false,
+    "<C-n>": false,
+    "<C-w>": false,
   },
 
   // -- Codeium settings

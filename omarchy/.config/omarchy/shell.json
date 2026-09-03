@@ -55,7 +55,7 @@
       ]
     },
     "position": "top",
-    "transparent": true
+    "transparent": false
   },
   "cloneSourceRestores": [
     "gr4vty.menu"
