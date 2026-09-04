@@ -21,6 +21,9 @@ bell-features = title, no-attention
 quick-terminal-position = top
 quick-terminal-size = 65%
 quick-terminal-space-behavior = remain
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
 
 # Cross-platform: super = Cmd on macOS, Super on Linux
 

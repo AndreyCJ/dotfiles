@@ -1,13 +1,11 @@
 export ZSH="$HOME/.oh-my-zsh"
+
 # Homebrew (macOS only)
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="/opt/homebrew/bin:$PATH"
   export PATH="/opt/homebrew/sbin:$PATH"
 fi
-# Linuxbrew (if used on Linux)
-if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
-  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-fi
+
 # export PATH="$HOME/Dotfiles/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
 
@@ -106,8 +104,8 @@ else
   [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-# >>> grok installer >>>
-export PATH="$HOME/.grok/bin:$PATH"
-fpath=(~/.grok/completions/zsh $fpath)
-autoload -Uz compinit && compinit -C
-# <<< grok installer <<<
+# # >>> grok installer >>>
+# export PATH="$HOME/.grok/bin:$PATH"
+# fpath=(~/.grok/completions/zsh $fpath)
+# autoload -Uz compinit && compinit -C
+# # <<< grok installer <<<
