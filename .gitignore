@@ -20,3 +20,6 @@ wakatime/.wakatime.cfg
 # Temporary files
 tmp/
 .cache/
+
+# Nvim: Omarchy-generated theme symlink (points into per-machine omarchy state)
+nvim/.config/nvim/lua/plugins/theme.lua
