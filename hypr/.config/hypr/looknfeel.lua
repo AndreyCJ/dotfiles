@@ -5,8 +5,8 @@
 --
 hl.config({
   general = {
-    gaps_in = 3,
-    gaps_out = 6,
+    -- gaps_in = 4,
+    -- gaps_out = 8,
     border_size = 0,
 
     -- Change to niri-like side-scrolling layout.
@@ -18,7 +18,7 @@ hl.config({
     rounding = 8,
 
     -- The 0.05 gap is what marks the focused window.
-    active_opacity = 0.91,
+    active_opacity = 0.95,
     inactive_opacity = 0.85,
 
     -- Translucency without blur makes text unreadable over these wallpapers.
