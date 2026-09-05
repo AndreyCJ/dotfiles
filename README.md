@@ -19,13 +19,13 @@
    ```bash
    sudo pacman -S stow zsh
    cd ~/dotfiles
-   stow git starship tmux vim wakatime zsh ghostty ssh vscode-linux hypr omarchy
+   stow git nvim starship tmux vim wakatime zsh ghostty ssh vscode-linux hypr omarchy
    ```
 
    macOS equivalent:
 
    ```bash
-   stow git starship tmux vim wakatime zsh ghostty ssh vscode-macos aerospace
+   stow git nvim starship tmux vim wakatime zsh ghostty ssh vscode-macos aerospace
    ```
 
    or just
@@ -39,13 +39,7 @@
 
 - `vscode-macos` → `~/Library/Application Support/Code/User/` (macOS)
 - `vscode-linux` → `~/.config/Code/User/` (Linux)
+- `nvim` → `~/.config/nvim/` (LazyVim)
 - `hypr` / `omarchy` → Linux only
 - `aerospace` → macOS only
 
-# Terminal
-
-fzf:
-
-- Ctrl+R → search history
-- Ctrl+T → search files
-- Alt+C → search dirs
