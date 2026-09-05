@@ -86,7 +86,7 @@
   // -- Misc
   "git.autofetch": true,
   "extensions.ignoreRecommendations": false,
-  "extensions.autoUpdate": "off",
+"extensions.autoUpdate": "off",
   "eslint.validate": ["javascriptreact", "javascript", "vue"],
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
@@ -170,9 +170,9 @@
   "workbench.layoutControl.enabled": false,
   "workbench.browser.showInTitleBar": true,
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Dark 2026",
   "workbench.preferredLightColorTheme": "Gruvbox Light Soft",
-  "workbench.iconTheme": "vscode-icons"
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.preferredDarkColorTheme": "Omarchy"
 
   // -- GitLens settings
   // "gitlens.views.scm.grouped.views": {
