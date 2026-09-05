@@ -48,6 +48,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Bindings
 # bindkey -r '^R'
+bindkey '^F' autosuggest-accept
 
 # Aliases
 alias reload="source ~/.zshrc"
