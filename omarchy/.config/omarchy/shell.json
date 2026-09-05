@@ -13,10 +13,10 @@
           "verticalFormat": "HH\n—\nmm"
         },
         {
-          "id": "omarchy.weather"
+          "id": "omarchy.system-update"
         },
         {
-          "id": "omarchy.system-update"
+          "id": "omarchy.weather"
         },
         {
           "id": "omarchy.keyboard-layout"
@@ -58,15 +58,21 @@
     "transparent": true
   },
   "cloneSourceRestores": [
-    "gr4vty.menu"
+    "gr4vty.menu",
+    "gr4vty.notifications"
   ],
   "disabledPlugins": [
-    "omarchy.menu"
+    "omarchy.menu",
+    "omarchy.notifications"
   ],
   "idle": {
     "lock": 300,
     "screensaver": 150
   },
-  "plugins": [],
+  "plugins": [
+    {
+      "id": "gr4vty.notifications"
+    }
+  ],
   "version": 1
 }
