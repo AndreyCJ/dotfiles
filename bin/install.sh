@@ -8,7 +8,7 @@ DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 OS="$(uname -s)"
 
 # Common packages (cross-platform)
-COMMON_PKGS="git starship tmux vim wakatime zsh ghostty ssh"
+COMMON_PKGS="git nvim starship tmux vim wakatime zsh ghostty ssh"
 MACOS_PKGS="aerospace vscode-macos"
 LINUX_PKGS="vscode-linux hypr omarchy"
 
@@ -92,6 +92,7 @@ else
   mkdir -p "$BACKUP_DIR"
   # All files/dirs that will be stowed on Linux
   CONFLICTS=(
+    "$HOME/.config/nvim"
     "$HOME/.config/ghostty/config"
     "$HOME/.config/starship.toml"
     "$HOME/.config/tmux/tmux.conf"
@@ -124,6 +125,15 @@ else
   # Use explicit package list so aerospace (macOS-only) is not stowed on Linux
   # shellcheck disable=SC2086
   stow -v $COMMON_PKGS $LINUX_PKGS
+
+  # Re-create the Omarchy theme symlink the nvim package can't stow (it points
+  # into per-machine omarchy state). No-op when omarchy state is absent (macOS).
+  # Six levels: HOME/dotfiles/nvim/.config/nvim/lua/plugins -> HOME.
+  if [[ -f "$HOME/.local/state/omarchy/current/theme/neovim.lua" ]]; then
+    mkdir -p "$HOME/.config/nvim/lua/plugins"
+    ln -snf "../../../../../../.local/state/omarchy/current/theme/neovim.lua" \
+      "$HOME/.config/nvim/lua/plugins/theme.lua"
+  fi
 
   # Set zsh as default shell if not already
   if [[ "$SHELL" != *"zsh"* ]] && command -v zsh >/dev/null 2>&1; then
