@@ -26,6 +26,3 @@ nvim/.config/nvim/lua/plugins/theme.lua
 
 # Omarchy shell plugin: live checkout managed by `omarchy plugin add`/`omarchy plugin update`
 omarchy/.config/omarchy/plugins/io.github.wbarakat.session-restore/
-
-# Omarchy shell plugin: live checkout managed by `omarchy plugin add`/`omarchy plugin update`
-omarchy/.config/omarchy/plugins/io.github.wbarakat.session-restore/

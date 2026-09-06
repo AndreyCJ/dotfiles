@@ -2,19 +2,16 @@
 
 set -e
 
-# Resolve dotfiles dir (handles ~/dotfiles vs ~/Dotfiles case on Linux)
 DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 OS="$(uname -s)"
 
-# Dotfiles repo packages (top-level dirs) to symlink with stow
 COMMON_STOW_PKGS=(git nvim starship tmux vim wakatime zsh ghostty ssh)
 MACOS_STOW_PKGS=(aerospace vscode-macos)
 LINUX_STOW_PKGS=(vscode-linux hypr omarchy)
 
-# Linux system packages installed via omarchy (fallback: pacman)
+# Note: MacOS system packages are located in Brewfile
 LINUX_SYSTEM_PKGS=(stow eza fzf zoxide starship mise tmux ghostty bitwarden)
 
-# Third-party Omarchy shell plugins installed from git
 OMARCHY_PLUGINS=(
   "https://github.com/wbarakat/omarchy-session-restore.git"
 )
@@ -44,7 +41,6 @@ install_macos() {
 install_linux() {
   echo "Installing system packages..."
 
-  # Ensure stow + zsh are present
   if ! command -v stow >/dev/null 2>&1; then
     echo "Installing stow..."
     sudo pacman -S --needed --noconfirm stow
@@ -65,13 +61,9 @@ install_linux() {
     sudo pacman -S --needed --noconfirm "${LINUX_SYSTEM_PKGS[@]}" git 2>/dev/null || true
   fi
 
-  echo "Installing Oh My Zsh..."
   install_oh_my_zsh
 
-  # Install zsh plugins for Linux (if not using brew)
-  if ! command -v brew >/dev/null 2>&1; then
-    sudo pacman -S --needed --noconfirm zsh-autosuggestions zsh-syntax-highlighting 2>/dev/null || true
-  fi
+  sudo pacman -S --needed --noconfirm zsh-autosuggestions zsh-syntax-highlighting 2>/dev/null || true
 
   echo "Creating config directories..."
   mkdir -p "$HOME/.config"
@@ -141,7 +133,7 @@ link_omarchy_theme() {
   # Six levels: HOME/dotfiles/nvim/.config/nvim/lua/plugins -> HOME.
   if [[ -f "$HOME/.local/state/omarchy/current/theme/neovim.lua" ]]; then
     mkdir -p "$HOME/.config/nvim/lua/plugins"
-    ln -snf "../../../../../../.local/state/omarchy/current/theme/neovim.lua" \
+    ln -snf "$HOME/.local/state/omarchy/current/theme/neovim.lua" \
       "$HOME/.config/nvim/lua/plugins/theme.lua"
   fi
 }
