@@ -27,4 +27,7 @@
   // Example: replace the default About action by reusing the same id. Existing
   // fields are kept unless overridden.
   // "about": {"icon":"","label":"About","action":"omarchy-launch-or-focus-tui \"zsh -c 'fastfetch; read -k 1'\""},
+  "system.session-save": {"icon":"󰆓","label":"Save Session","description":"Save open windows to restore on next boot","action":"~/.config/omarchy/plugins/io.github.wbarakat.session-restore/bin/omarchy-session-save --quiet && notify-send 'Session saved' 'Your windows will be restored on next boot'"},
+  "system.reboot": {"icon":"󰜉","label":"Reboot","action":"~/.config/omarchy/plugins/io.github.wbarakat.session-restore/bin/omarchy-session-save --quiet; omarchy-system-reboot"},
+  "system.shutdown": {"icon":"󰐥","label":"Shutdown","action":"~/.config/omarchy/plugins/io.github.wbarakat.session-restore/bin/omarchy-session-save --quiet; omarchy-system-shutdown"}
 }

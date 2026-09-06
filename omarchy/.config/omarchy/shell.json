@@ -72,6 +72,9 @@
   "plugins": [
     {
       "id": "gr4vty.notifications"
+    },
+    {
+      "id": "io.github.wbarakat.session-restore"
     }
   ],
   "version": 1
