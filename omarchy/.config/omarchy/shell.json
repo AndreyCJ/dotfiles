@@ -7,6 +7,9 @@
           "id": "omarchy.indicators"
         },
         {
+          "id": "techywilbur.pomodoro"
+        },
+        {
           "format": "dddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
           "id": "omarchy.clock",
@@ -28,9 +31,15 @@
         },
         {
           "id": "omarchy.workspaces"
+        },
+        {
+          "id": "omarchy.active-window"
         }
       ],
       "right": [
+        {
+          "id": "custom.media"
+        },
         {
           "id": "omarchy.tray"
         },
@@ -59,11 +68,13 @@
   },
   "cloneSourceRestores": [
     "gr4vty.menu",
-    "gr4vty.notifications"
+    "gr4vty.notifications",
+    "custom.media"
   ],
   "disabledPlugins": [
     "omarchy.menu",
-    "omarchy.notifications"
+    "omarchy.notifications",
+    "omarchy.media"
   ],
   "idle": {
     "lock": 300,
@@ -74,7 +85,7 @@
       "id": "gr4vty.notifications"
     },
     {
-      "id": "io.github.wbarakat.session-restore"
+      "id": "vbrosseau.alttab"
     }
   ],
   "version": 1
