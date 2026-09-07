@@ -52,13 +52,20 @@ Item {
   readonly property int barClearance: liveBarSize + Style.gapsOut
 
   // Popups only render on the main monitor: the one at the layout origin
-  // (Hyprland convention, e.g. DP-1 at "0x0" in monitors.lua). Falls back
-  // to the first connected screen when nothing sits at the origin.
+  // (Hyprland convention, e.g. DP-1 at "0x0" in monitors.lua). Exactly one
+  // screen is ever main: the first at the origin, falling back to the first
+  // connected screen when nothing sits at the origin.
   function isMainMonitor(screen) {
     if (!screen) return false
     var screens = Quickshell.screens || []
-    if (screen.x === 0 && screen.y === 0) return true
-    return screens.length > 0 && screen === screens[0]
+    var main = screens.length > 0 ? screens[0] : null
+    for (var i = 0; i < screens.length; i++) {
+      if (screens[i].x === 0 && screens[i].y === 0) {
+        main = screens[i]
+        break
+      }
+    }
+    return screen === main
   }
 
   // Live Notification objects by originalId, kept OUT of the ListModels: a
