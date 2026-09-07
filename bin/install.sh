@@ -5,7 +5,7 @@ set -e
 DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 OS="$(uname -s)"
 
-COMMON_STOW_PKGS=(git nvim starship tmux vim wakatime zsh ghostty ssh)
+COMMON_STOW_PKGS=(git nvim starship tmux vim wakatime zsh ghostty ssh yazi herdr)
 MACOS_STOW_PKGS=(aerospace vscode-macos)
 LINUX_STOW_PKGS=(vscode-linux hypr omarchy)
 
@@ -13,7 +13,9 @@ LINUX_STOW_PKGS=(vscode-linux hypr omarchy)
 LINUX_SYSTEM_PKGS=(stow eza fzf zoxide starship mise tmux ghostty bitwarden)
 
 OMARCHY_PLUGINS=(
-  "https://github.com/wbarakat/omarchy-session-restore.git"
+  "https://github.com/c4software/hyprland-alttab.git"
+  "https://github.com/Clifford-Baidoo/Omarchy-music-flow.git"
+  "https://github.com/techywilbur/omarchy-pomodoro.git"
 )
 
 install_macos() {
@@ -99,6 +101,8 @@ remove_conflicting_configs() {
     "$HOME/.ssh/config" \
     "$HOME/.config/hypr" \
     "$HOME/.config/omarchy" \
+    "$HOME/.config/yazi" \
+    "$HOME/.config/herdr" \
     "$HOME/.gitconfig" \
     "$HOME/.vimrc"
   do

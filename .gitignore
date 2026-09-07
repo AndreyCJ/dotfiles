@@ -24,5 +24,14 @@ tmp/
 # Nvim: Omarchy-generated theme symlink (points into per-machine omarchy state)
 nvim/.config/nvim/lua/plugins/theme.lua
 
+# Herdr runtime
+herdr/.config/herdr/*.log
+herdr/.config/herdr/*.sock
+herdr/.config/herdr/session.json
+herdr/.config/herdr/.plugins.lock
+
 # Omarchy shell plugin: live checkout managed by `omarchy plugin add`/`omarchy plugin update`
-omarchy/.config/omarchy/plugins/io.github.wbarakat.session-restore/
+omarchy/.config/omarchy/plugins/vbrosseau.alttab/
+omarchy/.config/omarchy/plugins/custom.media/
+omarchy/.config/omarchy/plugins/io.github.argusguardian.freemodels/
+omarchy/.config/omarchy/plugins/techywilbur.pomodoro/
