@@ -13,11 +13,17 @@
   {
     "key": "ctrl+j",
     "command": "editor.action.inlineSuggest.hide",
+    "when": "inlineSuggestionsVisible"
   },
   {
     "key": "ctrl+j",
     "command": "hideSuggestWidget",
-    "when": "suggestWidgetVisible",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.togglePanel",
+    "when": "!suggestWidgetVisible && !inlineSuggestionsVisible"
   },
 
 
@@ -51,4 +57,12 @@
     "key": "alt+[",
     "command": "codeium.showPreviousCompletion",
   },
+  {
+    "key": "ctrl+shift+j",
+    "command": "terminal.toggleVisibility"
+  },
+  {
+    "key": "ctrl+[Backquote]",
+    "command": "workbench.action.terminal.toggleTerminal"
+  }
 ]

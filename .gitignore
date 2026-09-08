@@ -29,6 +29,7 @@ herdr/.config/herdr/*.log
 herdr/.config/herdr/*.sock
 herdr/.config/herdr/session.json
 herdr/.config/herdr/.plugins.lock
+herdr/.config/herdr/release-notes.json
 
 # Opencode: herdr plugin runtime (regenerated on first herdr use)
 opencode/.config/opencode/node_modules

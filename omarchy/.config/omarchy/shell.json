@@ -38,13 +38,13 @@
       ],
       "right": [
         {
-          "id": "custom.media"
+          "id": "omarchy.agents"
         },
         {
           "id": "omarchy.tray"
         },
         {
-          "id": "omarchy.agents"
+          "id": "custom.media"
         },
         {
           "id": "omarchy.bluetooth"
