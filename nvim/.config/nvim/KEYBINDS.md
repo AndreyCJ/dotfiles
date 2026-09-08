@@ -1,108 +1,39 @@
-# LazyVim Keybinds
+# nvim Keybinds — Quick Reference
 
-Leader key: `<Space>`
+Leader key is `<Space>`. Press `<Space>` alone to see the menu of everything, or `<leader>sk` to browse all keymaps.
 
-> Tip: press `<Space>` to see which-key, or use `<leader>sk` to browse **all** keybindings.
+## Searching
 
-## All Keybinds
+**Find a file** — `<Space><Space>` (or `<Space>` `ff`). Fuzzy-searches the whole project folder, hidden files included. Type part of the name and hit Enter.
 
-| Keybind | Action |
-|---------|--------|
-| `<leader>sk` | Browse all keymaps |
-| `<Space>` | Which-key menu |
-| `<leader>sh` | Help pages |
+**Find text across the project** — `<Space>` `sg` greps every file in the folder with ripgrep.
 
-## Find & Search
+**Find text in the current file** — `/` then type your search, Enter. Jump between matches with `n` (next) and `N` (previous). `*` searches for the word under the cursor.
 
-| Keybind | Action |
-|---------|--------|
-| `<leader><space>` / `<leader>ff` | Find files |
-| `<leader>fb` / `<leader>,` | Find open buffers |
-| `<leader>fg` | Find git files |
-| `<leader>fr` | Find recent files |
-| `<leader>fp` | Projects |
-| `<leader>sg` | Live grep (ripgrep) |
-| `<leader>sw` | Search word under cursor |
-| `<leader>sd` | Diagnostic list |
-| `<leader>ss` | LSP symbols |
+## Files & buffers
 
-## Buffers & Navigation
-
-| Keybind | Action |
-|---------|--------|
-| `<S-h>` | Previous buffer |
-| `<S-l>` | Next buffer |
-| `[b` / `]b` | Previous / next buffer |
-| `<leader>bb` | Switch to other buffer |
-| `<leader>bd` | Delete buffer |
-| `<C-h>` | Move to left window |
-| `<C-j>` | Move to lower window |
-| `<C-k>` | Move to upper window |
-| `<C-l>` | Move to right window |
-| `<C-d>` | Scroll down half page |
-| `<C-u>` | Scroll up half page |
+- `<Space>` `fb` — pick from open buffers (also `<S-h>` / `<S-l>` to cycle)
+- `<Space>` `fr` — recently opened files
+- `<Space>` `e` — toggle file explorer (side panel), `H` shows hidden files there
 
 ## Editing
 
-| Keybind | Action |
-|---------|--------|
-| `<C-s>` | Save file |
-| `gcc` | Toggle comment line |
-| `gc` | Toggle comment (visual/line) |
-| `<C-c>` | Escape insert mode |
-| `<leader>ur` | Redraw / clear highlight |
+- `u` / `Ctrl+r` — undo / redo
+- `dd` / `yy` / `p` — delete line / copy line / paste
+- `gcc` — toggle comment on a line
+- `gg` / `G` — jump to top / bottom of file
 
-## LSP
+## Code (LSP)
 
-| Keybind | Action |
-|---------|--------|
-| `gd` | Goto definition |
-| `gr` | References |
-| `K` | Hover |
-| `<leader>ca` | Code action |
-| `<leader>cr` | Rename |
-| `<leader>cf` | Format |
-| `]d` / `[d` | Next / previous diagnostic |
+- `gd` — go to definition · `gr` — find references · `K` — hover docs
+- `<Space>` `ca` — code actions · `<Space>` `cr` — rename · `<Space>` `cf` — format
 
 ## Git
 
-| Keybind | Action |
-|---------|--------|
-| `<leader>gg` | Lazygit |
-| `<leader>gs` | Git status |
-| `]c` / `[c` | Next / previous hunk |
-| `<leader>gp` | Preview hunk |
-| `<leader>gb` | Git blame line |
+- `<Space>` `gg` — lazygit · `<Space>` `gs` — status · `<Space>` `gb` — blame
 
-## Windows & Splits
+## Windows
 
-| Keybind | Action |
-|---------|--------|
-| `<leader>-` | Split horizontal |
-| `<leader>\|` | Split vertical |
-| `<leader>wd` | Close window |
-| `<leader>wm` | Toggle maximize |
-| `<S-A-h/j/k/l>` | Move window in direction |
-
-## File Explorer (Neo-tree)
-
-| Keybind | Action |
-|---------|--------|
-| `<leader>e` | Toggle file explorer (sidebar) |
-| `<leader>E` | Toggle file explorer (float) |
-| `-` | Open file explorer in current file's directory |
-| `H` | Toggle hidden files in neo-tree |
-
-## Session
-
-| Keybind | Action |
-|---------|--------|
-| `<leader>Sl` | Load session |
-| `<leader>Ss` | Save session |
-| `<leader>Sd` | Delete session |
-
-## Quit
-
-| Keybind | Action |
-|---------|--------|
-| `<leader>qq` | Quit all |
+- `<Space>` `-` / `<Space>` `|` — horizontal / vertical split
+- `Ctrl+h/j/k/l` — jump between split windows
+- `<Space>` `qq` — quit all · `Ctrl+s` — save
