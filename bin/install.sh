@@ -5,7 +5,7 @@ set -e
 DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 OS="$(uname -s)"
 
-COMMON_STOW_PKGS=(git nvim starship tmux vim wakatime zsh ghostty ssh yazi herdr)
+COMMON_STOW_PKGS=(git nvim starship tmux vim wakatime zsh ghostty ssh yazi herdr opencode)
 MACOS_STOW_PKGS=(aerospace vscode-macos)
 LINUX_STOW_PKGS=(vscode-linux hypr omarchy)
 

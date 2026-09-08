@@ -30,6 +30,13 @@ herdr/.config/herdr/*.sock
 herdr/.config/herdr/session.json
 herdr/.config/herdr/.plugins.lock
 
+# Opencode: herdr plugin runtime (regenerated on first herdr use)
+opencode/.config/opencode/node_modules
+opencode/.config/opencode/package.json
+opencode/.config/opencode/package-lock.json
+opencode/.config/opencode/.gitignore
+opencode/.config/opencode/*.bak
+
 # Omarchy shell plugin: live checkout managed by `omarchy plugin add`/`omarchy plugin update`
 omarchy/.config/omarchy/plugins/vbrosseau.alttab/
 omarchy/.config/omarchy/plugins/custom.media/
