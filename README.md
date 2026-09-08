@@ -1,45 +1,37 @@
-# Installation
+# Dotfiles
 
-## macOS
+My configuration files, managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-1. `xcode-select --install`
+## Supported OSes
 
-2. `git clone git@github.com:AndreyCJ/dotfiles.git ~/dotfiles`
+- **macOS**
+- **Arch Linux (Omarchy)**
 
-3. `~/dotfiles/bin/install.sh`
+## Installation
 
-## Arch Linux (Omarchy)
+```bash
+git clone git@github.com:AndreyCJ/dotfiles.git ~/Dotfiles
+~/Dotfiles/bin/install.sh
+```
 
-1. `git clone git@github.com:AndreyCJ/dotfiles.git ~/dotfiles`
+The install script installs system dependencies, sets up Oh My Zsh, and
+applies all config symlinks with Stow. It detects your OS automatically.
 
-2. `~/dotfiles/bin/install.sh`
+### Manual (explicit Stow)
 
-   Manual (explicit stow):
+If you'd rather handle Stow yourself:
 
-   ```bash
-   sudo pacman -S stow zsh
-   cd ~/dotfiles
-   stow git nvim starship tmux vim wakatime zsh ghostty ssh vscode-linux hypr omarchy
-   ```
+```bash
+cd ~/Dotfiles
+stow .
+```
 
-   macOS equivalent:
+To apply only a subset:
 
-   ```bash
-   stow git nvim starship tmux vim wakatime zsh ghostty ssh vscode-macos aerospace
-   ```
+```bash
+cd ~/Dotfiles
+stow git nvim starship tmux ghostty ...
+```
 
-   or just
-
-   ```bash
-    cd ~/dotfiles
-    stow .
-   ```
-
-## Packages
-
-- `vscode-macos` → `~/Library/Application Support/Code/User/` (macOS)
-- `vscode-linux` → `~/.config/Code/User/` (Linux)
-- `nvim` → `~/.config/nvim/` (LazyVim)
-- `hypr` / `omarchy` → Linux only
-- `aerospace` → macOS only
-
+After stowing, close and reopen your terminal for the new shell config to
+take effect.
