@@ -41,7 +41,6 @@ hl.config({
     --
     --       -- Left-click-and-drag with three fingers.
     --       drag_3fg = 1,
-    --     },
     },
   },
 })
@@ -50,7 +49,7 @@ hl.config({
 -- o.window("(Alacritty|kitty|foot)", { scroll_touchpad = 1.5 })
 -- o.window("com.mitchellh.ghostty", { scroll_touchpad = 0.2 })
 
--- Completely disable TrackPoint (ThinkPad PS/2 pass-through, shows as ps/2-generic-mouse).
+-- Completely disable TrackPoint for my broken T490 (ThinkPad PS/2 pass-through, shows as ps/2-generic-mouse).
 hl.device({ name = "ps/2-generic-mouse", enabled = false })
 
 -- Enable touchpad gestures for changing workspaces.
