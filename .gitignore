@@ -39,7 +39,10 @@ opencode/.config/opencode/.gitignore
 opencode/.config/opencode/*.bak
 
 # Omarchy shell plugin: live checkout managed by `omarchy plugin add`/`omarchy plugin update`
+omarchy/.config/omarchy/plugins/io.github.joshz7.afterglow/
+omarchy/.config/omarchy/plugins/mrpbennett.sesh/
 omarchy/.config/omarchy/plugins/vbrosseau.alttab/
-omarchy/.config/omarchy/plugins/custom.media/
-omarchy/.config/omarchy/plugins/io.github.argusguardian.freemodels/
 omarchy/.config/omarchy/plugins/techywilbur.pomodoro/
+omarchy/.config/omarchy/plugins/io.github.argusguardian.freemodels/
+omarchy/.config/omarchy/plugins/jordan.workspaces/
+omarchy/.config/omarchy/plugins/.gr4vty.menu.bak.20260909084528/

@@ -7,10 +7,13 @@
           "id": "omarchy.indicators"
         },
         {
-          "id": "techywilbur.pomodoro"
+          "id": "mrpbennett.sesh"
         },
         {
-          "format": "dddd HH:mm",
+          "id": "techywilbur.pomodoro",
+        },
+        {
+          "format": "dd/MM dddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
           "id": "omarchy.clock",
           "verticalFormat": "HH\n—\nmm"
@@ -27,10 +30,13 @@
       ],
       "left": [
         {
-          "id": "gr4vty.menu"
+          "id": "omarchy.menu"
         },
         {
-          "id": "omarchy.workspaces"
+          "id": "omarchy.media"
+        },
+        {
+          "id": "jordan.workspaces"
         },
         {
           "id": "omarchy.active-window"
@@ -38,16 +44,23 @@
       ],
       "right": [
         {
+          "id": "io.github.joshz7.afterglow",
+          "colorMode": "bonfire",
+          "showNextButton": false,
+          "sparkIntensity": "full",
+          "spectrumBars": 28
+        },
+        {
           "id": "omarchy.agents"
         },
         {
           "id": "omarchy.tray"
         },
         {
-          "id": "custom.media"
+          "id": "omarchy.bluetooth"
         },
         {
-          "id": "omarchy.bluetooth"
+          "id": "omarchy.microphone"
         },
         {
           "id": "omarchy.network"
@@ -67,12 +80,9 @@
     "transparent": true
   },
   "cloneSourceRestores": [
-    "gr4vty.menu",
-    "gr4vty.notifications",
-    "custom.media"
+    "gr4vty.notifications"
   ],
   "disabledPlugins": [
-    "omarchy.menu",
     "omarchy.notifications",
     "omarchy.media"
   ],

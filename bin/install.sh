@@ -13,8 +13,10 @@ LINUX_STOW_PKGS=(vscode-linux hypr omarchy)
 LINUX_SYSTEM_PKGS=(stow eza fzf zoxide starship mise tmux ghostty bitwarden)
 
 OMARCHY_PLUGINS=(
+  "https://github.com/mrpbennett/omarchy-sesh.git"
+  "https://github.com/JoshZ7/omarchy-afterglow.git"
   "https://github.com/c4software/hyprland-alttab.git"
-  "https://github.com/Clifford-Baidoo/Omarchy-music-flow.git"
+  "https://github.com/jordanpartridge/omarchy-workspaces.git"
   "https://github.com/techywilbur/omarchy-pomodoro.git"
 )
 
