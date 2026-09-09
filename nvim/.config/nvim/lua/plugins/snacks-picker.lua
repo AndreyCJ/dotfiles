@@ -4,7 +4,19 @@ return {
     opts = {
       picker = {
         sources = {
-          files = { hidden = true },
+          files = { hidden = true, },
+          grep = {
+            hidden = true,
+            args = {
+              "--hidden",
+              "--glob=!**/.git/**",
+              "--glob=!**/node_modules/**",
+            },
+            exclude = {
+              ".git",
+              "node_modules",
+            },
+          },
         },
       },
     },
