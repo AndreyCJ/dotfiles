@@ -76,7 +76,7 @@
   "editor.detectIndentation": false,
 
   // -- Font settings
-  "editor.fontFamily": "'FiraMono Nerd Font', 'Inconsolata Nerd Font', 'Hack NF', Menlo, Consolas, sans-serif",
+  "editor.fontFamily": " sans-serif",
   "editor.fontSize": 14,
   "editor.fontLigatures": false,
   "debug.console.fontSize": 14,
@@ -129,7 +129,7 @@
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": false,
+  "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.camelCaseMotion.enable": true,
   "vim.normalModeKeyBindingsNonRecursive": [
