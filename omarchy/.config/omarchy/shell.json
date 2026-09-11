@@ -7,12 +7,6 @@
           "id": "omarchy.indicators"
         },
         {
-          "id": "mrpbennett.sesh"
-        },
-        {
-          "id": "techywilbur.pomodoro"
-        },
-        {
           "format": "dd/MM dddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
           "id": "omarchy.clock",
@@ -36,7 +30,7 @@
           "id": "omarchy.media"
         },
         {
-          "id": "jordan.workspaces"
+          "id": "omarchy.workspaces"
         },
         {
           "id": "omarchy.active-window"
@@ -44,17 +38,25 @@
       ],
       "right": [
         {
+          "id": "omarchy.agents"
+        },
+        {
+          "id": "omarchy.tray",
+          "pinned": [],
+          "hidden": []
+        },
+        {
           "id": "io.github.joshz7.afterglow",
           "colorMode": "bonfire",
-          "showNextButton": false,
+          "showNextButton": true,
           "sparkIntensity": "full",
           "spectrumBars": 28
         },
         {
-          "id": "omarchy.agents"
+          "id": "mrpbennett.sesh"
         },
         {
-          "id": "omarchy.tray"
+          "id": "techywilbur.pomodoro"
         },
         {
           "id": "omarchy.bluetooth"
@@ -77,7 +79,7 @@
       ]
     },
     "position": "top",
-    "transparent": true
+    "transparent": false
   },
   "cloneSourceRestores": [
     "gr4vty.notifications"
