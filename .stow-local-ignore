@@ -17,5 +17,8 @@
 # Linux: don't stow macOS icon (ignore Ghostty.icns anywhere)
 .*Ghostty\.icns
 .*\.icns
+# Ghostty: per-platform files never stowed (linked by install.sh per OS)
+.*linux\.conf
+.*macos\.conf
 # Aerospace backup file
 #\.aerospace\.toml#

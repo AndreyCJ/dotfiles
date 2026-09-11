@@ -13,10 +13,9 @@ LINUX_STOW_PKGS=(vscode-linux hypr omarchy)
 LINUX_SYSTEM_PKGS=(stow eza fzf zoxide starship mise tmux ghostty bitwarden)
 
 OMARCHY_PLUGINS=(
-  "https://github.com/mrpbennett/omarchy-sesh.git"
   "https://github.com/JoshZ7/omarchy-afterglow.git"
+  "https://github.com/mrpbennett/omarchy-sesh.git"
   "https://github.com/c4software/hyprland-alttab.git"
-  "https://github.com/jordanpartridge/omarchy-workspaces.git"
   "https://github.com/techywilbur/omarchy-pomodoro.git"
 )
 
@@ -40,6 +39,7 @@ install_macos() {
   mkdir -p "$HOME/Library/Application Support/Code/User"
 
   stow_dotfiles "${MACOS_STOW_PKGS[@]}"
+  link_ghostty_platform
 }
 
 install_linux() {
@@ -77,6 +77,7 @@ install_linux() {
   remove_conflicting_configs
   stow_dotfiles "${LINUX_STOW_PKGS[@]}"
   install_omarchy_plugins
+  link_ghostty_platform
   link_omarchy_theme
   set_default_shell
 }
@@ -130,6 +131,19 @@ install_omarchy_plugins() {
     for url in "${OMARCHY_PLUGINS[@]}"; do
       omarchy plugin add "$url" --enable --yes || true
     done
+  fi
+}
+
+link_ghostty_platform() {
+  # Ghostty: shared config references a per-platform file via a `?` include
+  # (silently skipped when missing). Stow never links these (see .stow-local-ignore),
+  # so link the right one per OS here.
+  if [[ "$OS" == "Darwin" ]]; then
+    ln -snf "$DOTFILES/ghostty/.config/ghostty/macos.conf" \
+      "$HOME/.config/ghostty/macos.conf"
+  else
+    ln -snf "$DOTFILES/ghostty/.config/ghostty/linux.conf" \
+      "$HOME/.config/ghostty/linux.conf"
   fi
 }
 

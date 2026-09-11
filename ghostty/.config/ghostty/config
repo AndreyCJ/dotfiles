@@ -1,13 +1,12 @@
-# This is the configuration file for Ghostty.
-
 # Options or the bound key (default: Command + Shift + comma on macOS and Control + Shift + comma on other platforms).
 
 # Shared macOS/Linux config. macOS uses the Adventure fallback below.
 
-# On Omarchy/Linux, the generated palette overrides it (missing file is silently skipped on macOS thanks to the leading `?`).
+# On Omarchy/Linux, the generated palette overrides it (missing file is silently skipped, thanks to the leading `?`).
 
 theme = Adventure
 config-file = ?~/.local/state/omarchy/current/theme/ghostty.conf
+config-file = ?~/.config/ghostty/macos.conf
 clipboard-read = allow
 clipboard-write = allow
 shell-integration-features = no-cursor
@@ -15,8 +14,6 @@ cursor-style = block
 cursor-style-blink = true
 font-size = 10
 font-family = "FiraCode Nerd Font"
-background-opacity = 0.90
-background-blur = 10
 bell-features = title, no-attention
 quick-terminal-position = top
 quick-terminal-size = 65%
@@ -25,10 +22,3 @@ window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
 
-# Cross-platform: super = Cmd on macOS, Super on Linux
-
-keybind = global:super+;=toggle_quick_terminal
-
-# macOS only
-
-macos-icon = retro
