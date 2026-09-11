@@ -76,7 +76,7 @@
   "editor.detectIndentation": false,
 
   // -- Font settings
-  "editor.fontFamily": " sans-serif",
+  "editor.fontFamily": "FiraCode Nerd Font Mono",
   "editor.fontSize": 14,
   "editor.fontLigatures": false,
   "debug.console.fontSize": 14,
@@ -175,7 +175,7 @@
   "workbench.browser.showInTitleBar": true,
   "window.autoDetectColorScheme": true,
   "workbench.preferredLightColorTheme": "Gruvbox Light Soft",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "ayu",
   "workbench.preferredDarkColorTheme": "Omarchy"
 
   // -- GitLens settings
