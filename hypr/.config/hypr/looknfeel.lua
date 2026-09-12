@@ -18,7 +18,7 @@ hl.config({
     rounding = 8,
 
     -- The 0.05 gap is what marks the focused window.
-    active_opacity = 0.95,
+    active_opacity = 0.93,
     inactive_opacity = 0.90,
 
     -- Translucency without blur makes text unreadable over these wallpapers.
