@@ -7,9 +7,15 @@
           "id": "omarchy.indicators"
         },
         {
-          "format": "dd/MM dddd HH:mm",
-          "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "mrpbennett.sesh"
+        },
+        {
+          "id": "techywilbur.pomodoro"
+        },
+        {
           "id": "omarchy.clock",
+          "format": "dddd HH:mm",
+          "formatAlt": "d MMMM 'W'ww yyyy",
           "verticalFormat": "HH\n—\nmm"
         },
         {
@@ -24,10 +30,10 @@
       ],
       "left": [
         {
-          "id": "omarchy.menu"
+          "id": "omarchy.media"
         },
         {
-          "id": "omarchy.media"
+          "id": "omarchy.menu"
         },
         {
           "id": "omarchy.workspaces"
@@ -46,23 +52,46 @@
           "hidden": []
         },
         {
-          "id": "io.github.joshz7.afterglow",
+          "id": "omarchy.spacer"
+        },
+        {
           "colorMode": "bonfire",
+          "id": "io.github.joshz7.afterglow",
           "showNextButton": true,
           "sparkIntensity": "full",
           "spectrumBars": 28
         },
         {
-          "id": "mrpbennett.sesh"
+          "id": "omarchy.spacer"
         },
         {
-          "id": "techywilbur.pomodoro"
+          "id": "osesantos.vitals",
+          "module": "sensors",
+          "widget": "text"
         },
         {
-          "id": "omarchy.bluetooth"
+          "id": "osesantos.vitals",
+          "module": "cpu",
+          "widget": "text"
+        },
+        {
+          "id": "osesantos.vitals",
+          "module": "memory",
+          "widget": "text"
+        },
+        {
+          "id": "osesantos.vitals",
+          "module": "disk",
+          "widget": "text"
+        },
+        {
+          "id": "omarchy.spacer"
         },
         {
           "id": "omarchy.microphone"
+        },
+        {
+          "id": "omarchy.bluetooth"
         },
         {
           "id": "omarchy.network"
@@ -79,7 +108,7 @@
       ]
     },
     "position": "top",
-    "transparent": true
+    "transparent": false
   },
   "cloneSourceRestores": [
     "gr4vty.notifications"
@@ -97,7 +126,7 @@
       "id": "gr4vty.notifications"
     },
     {
-      "id": "vbrosseau.alttab"
+      "id": "io.github.codesmith28.omalt-tab"
     }
   ],
   "version": 1

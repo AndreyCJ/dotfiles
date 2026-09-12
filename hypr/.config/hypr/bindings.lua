@@ -27,4 +27,26 @@
 -- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
 -- o.bind("SUPER + H", nil, "voxtype record toggle")
 -- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
-dofile(os.getenv("HOME") .. "/.config/omarchy/plugins/vbrosseau.alttab/omarchy-plugin/alttab-bindings.lua")
+
+-- o.bind("SUPER + TAB", "Alt-Tab switcher", hl.dsp.global("omarchy-alttab:next"), { repeating = true })
+
+
+
+
+
+-- -- bindings.lua: Hyprland & Omarchy bindings for omalt-tab window switcher
+
+hl.unbind("SUPER + TAB")
+hl.unbind("SUPER + SHIFT + TAB")
+o.bind("SUPER + TAB", "Focus on next window", hl.dsp.window.cycle_next(), { repeating = true })
+o.bind("SUPER + SHIFT + TAB", "Focus on previous window", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
+
+hl.unbind("ALT + TAB")
+hl.unbind("ALT + SHIFT + TAB")
+
+local omalt_tab = os.getenv("HOME") .. "/.config/omarchy/plugins/io.github.codesmith28.omalt-tab/hypr/bindings.lua"
+local f = io.open(omalt_tab, "r")
+if f then
+  f:close()
+  dofile(omalt_tab)
+end
