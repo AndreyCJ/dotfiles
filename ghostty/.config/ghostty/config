@@ -2,17 +2,22 @@
 
 # Shared macOS/Linux config. macOS uses the Adventure fallback below.
 
-# On Omarchy/Linux, the generated palette overrides it (missing file is silently skipped, thanks to the leading `?`).
+# On Omarchy/Linux, the generated palette overrides it (missing file is silently
+# skipped, thanks to the leading `?`).
+
+# OS-specific settings (macos.conf / linux.conf) are merged into the generated
+# ~/.config/ghostty/config.ghostty by bin/merge-ghostty-config.sh, which loads
+# before this file. Re-run that script after editing this file conf or the
+# platform confs. Keys set here win over the generated file.
 
 theme = Adventure
 config-file = ?~/.local/state/omarchy/current/theme/ghostty.conf
-config-file = ?~/.config/ghostty/macos.conf
 clipboard-read = allow
 clipboard-write = allow
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = true
-font-size = 10
+font-size = 13
 font-family = "FiraCode Nerd Font"
 bell-features = title, no-attention
 quick-terminal-position = top

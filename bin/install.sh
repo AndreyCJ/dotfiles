@@ -40,7 +40,6 @@ install_macos() {
   mkdir -p "$HOME/Library/Application Support/Code/User"
 
   stow_dotfiles "${MACOS_STOW_PKGS[@]}"
-  link_ghostty_platform
 }
 
 install_linux() {
@@ -78,7 +77,6 @@ install_linux() {
   remove_conflicting_configs
   stow_dotfiles "${LINUX_STOW_PKGS[@]}"
   install_omarchy_plugins
-  link_ghostty_platform
   link_omarchy_theme
   set_default_shell
 }
@@ -135,19 +133,6 @@ install_omarchy_plugins() {
   fi
 }
 
-link_ghostty_platform() {
-  # Ghostty: shared config references a per-platform file via a `?` include
-  # (silently skipped when missing). Stow never links these (see .stow-local-ignore),
-  # so link the right one per OS here.
-  if [[ "$OS" == "Darwin" ]]; then
-    ln -snf "$DOTFILES/ghostty/.config/ghostty/macos.conf" \
-      "$HOME/.config/ghostty/macos.conf"
-  else
-    ln -snf "$DOTFILES/ghostty/.config/ghostty/linux.conf" \
-      "$HOME/.config/ghostty/linux.conf"
-  fi
-}
-
 link_omarchy_theme() {
   # Re-create the Omarchy theme symlink the nvim package can't stow (it points
   # into per-machine omarchy state). No-op when omarchy state is absent (macOS).
@@ -193,6 +178,10 @@ main() {
   else
     install_linux
   fi
+
+  # Generate ghostty's OS-specific config.ghostty (shared + platform conf)
+  echo "Merging Ghostty OS-specific config..."
+  "$DOTFILES/bin/merge-ghostty-config.sh"
 
   setup_wakatime
 
