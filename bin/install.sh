@@ -30,7 +30,9 @@ install_macos() {
   fi
 
   echo "Installing packages (Brewfile)..."
-  brew bundle --file="$DOTFILES/Brewfile"
+  if ! brew bundle --file="$DOTFILES/Brewfile"; then
+    echo "WARNING: brew bundle failed, continuing..." >&2
+  fi
 
   install_oh_my_zsh
 
@@ -39,6 +41,7 @@ install_macos() {
   mkdir -p "$HOME/.ssh"
   mkdir -p "$HOME/Library/Application Support/Code/User"
 
+  remove_conflicting_configs
   stow_dotfiles "${MACOS_STOW_PKGS[@]}"
 }
 
@@ -59,7 +62,7 @@ install_linux() {
   echo "Installing common tools (${LINUX_SYSTEM_PKGS[*]}, git)..."
   if command -v omarchy >/dev/null 2>&1; then
     # Prefer omarchy pkg wrapper
-    omarchy pkg add --needed "${LINUX_SYSTEM_PKGS[@]}" 2>/dev/null || \
+    omarchy pkg add --needed "${LINUX_SYSTEM_PKGS[@]}" 2>/dev/null ||
       sudo pacman -S --needed --noconfirm "${LINUX_SYSTEM_PKGS[@]}" git 2>/dev/null || true
   else
     sudo pacman -S --needed --noconfirm "${LINUX_SYSTEM_PKGS[@]}" git 2>/dev/null || true
@@ -90,8 +93,7 @@ install_oh_my_zsh() {
 }
 
 remove_conflicting_configs() {
-  # Fresh Omarchy has regular files where dotfiles wants symlinks — remove so stow can link
-  echo "Removing existing configs that conflict with repo (fresh Omarchy)..."
+  echo "Removing existing configs that conflict with repo..."
   for f in \
     "$HOME/.config/nvim" \
     "$HOME/.config/ghostty/config" \
@@ -106,8 +108,7 @@ remove_conflicting_configs() {
     "$HOME/.config/yazi" \
     "$HOME/.config/herdr" \
     "$HOME/.gitconfig" \
-    "$HOME/.vimrc"
-  do
+    "$HOME/.vimrc"; do
     if [[ -e "$f" && ! -L "$f" ]]; then
       echo "  Removing $f"
       rm -rf "$f"
@@ -118,6 +119,11 @@ remove_conflicting_configs() {
 stow_dotfiles() {
   # $@: OS-specific stow package list. Explicit list avoids stow . fragility and handles split vscode
   echo "Applying symlinks with Stow..."
+
+  # Purge Finder metadata in the stow tree so it can't block symlinking.
+  find "$DOTFILES" "$HOME/.config" "$HOME/.ssh" "$HOME" -maxdepth 1 \
+    -name '.DS_Store' -delete 2>/dev/null || true
+
   cd "$DOTFILES"
   stow -v "${COMMON_STOW_PKGS[@]}" "$@"
 }
@@ -158,14 +164,14 @@ setup_wakatime() {
     if [[ -n "${WAKAPI_KEY:-}" ]]; then
       echo "Generating wakatime config from template..."
       if command -v envsubst >/dev/null 2>&1; then
-        envsubst < "$DOTFILES/wakatime/.wakatime.cfg.template" > "$HOME/.wakatime.cfg"
+        envsubst <"$DOTFILES/wakatime/.wakatime.cfg.template" >"$HOME/.wakatime.cfg"
       else
         # Fallback without envsubst
-        sed "s|\${WAKAPI_KEY}|$WAKAPI_KEY|g" "$DOTFILES/wakatime/.wakatime.cfg.template" > "$HOME/.wakatime.cfg"
+        sed "s|\${WAKAPI_KEY}|$WAKAPI_KEY|g" "$DOTFILES/wakatime/.wakatime.cfg.template" >"$HOME/.wakatime.cfg"
       fi
     fi
   elif [[ -f "$DOTFILES/wakatime/.wakatime.cfg.template" ]] && command -v envsubst >/dev/null 2>&1 && [[ -f "$HOME/.env" ]]; then
-    envsubst < "$DOTFILES/wakatime/.wakatime.cfg.template" > "$HOME/.wakatime.cfg" 2>/dev/null || true
+    envsubst <"$DOTFILES/wakatime/.wakatime.cfg.template" >"$HOME/.wakatime.cfg" 2>/dev/null || true
   fi
 }
 

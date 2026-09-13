@@ -2,22 +2,28 @@
 .DS_Store
 \.DS_Store
 (^|/)\.DS_Store$
-# Emacs backup
+# macOS Finder metadata
+\.localized
+\._.*
+# Emacs backup / autosave
 \#.*\#
+.+~
 
-*.swp
-*.swo
-*.tmp
+.*\.swp
+.*\.swo
+.*\.tmp
 
 ^/README.md
 ^/CHANGELOG.md
+^/LICENSE.*
+^/COPYING
 ^/docs
 ^/bin
 ^/macos
 # Linux: don't stow macOS icon (ignore Ghostty.icns anywhere)
 .*Ghostty\.icns
 .*\.icns
-# Ghostty: per-platform files never stowed (linked by install.sh per OS)
+# Ghostty: per-platform files consumed by bin/merge-ghostty-config.sh, never stowed
 .*linux\.conf
 .*macos\.conf
 # Aerospace backup file
