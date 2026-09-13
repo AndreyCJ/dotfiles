@@ -9,6 +9,9 @@ fi
 # export PATH="$HOME/Dotfiles/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
 
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
+
 ZSH_THEME="geoffgarside"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 HISTSIZE=100000
@@ -104,9 +107,3 @@ else
   [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-
-# # >>> grok installer >>>
-# export PATH="$HOME/.grok/bin:$PATH"
-# fpath=(~/.grok/completions/zsh $fpath)
-# autoload -Uz compinit && compinit -C
-# # <<< grok installer <<<
