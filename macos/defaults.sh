@@ -29,6 +29,9 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 # Finder: отключить предупреждение при смене расширения
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
+# Finder: не писать .DS_Store на сетевых и съёмных томах
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
 # Finder: удалять файлы из корзины через 30 дней
 defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 
