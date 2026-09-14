@@ -13,12 +13,16 @@ hl.config({
     -- layout = "scrolling",
   },
 
+  dwindle = {
+    preserve_split = true
+  },
+
   decoration = {
     rounding_power = 4,
     rounding = 8,
 
     -- The 0.05 gap is what marks the focused window.
-    active_opacity = 0.93,
+    active_opacity = 0.92,
     inactive_opacity = 0.90,
 
     -- Translucency without blur makes text unreadable over these wallpapers.
