@@ -8,10 +8,20 @@ hl.config({
     gaps_in = 4,
     gaps_out = 8,
     border_size = 2,
-
-    -- Change to niri-like side-scrolling layout.
-    -- layout = "scrolling",
   },
+
+  scrolling = {
+    focus_fit_method = 1,
+    follow_focus = true,
+    follow_min_visible = 0.3,
+  },
+
+  input = {
+    focus_on_close = 2,
+    follow_mouse = 1,
+    mouse_refocus = false,
+  },
+
 
   dwindle = {
     preserve_split = true
