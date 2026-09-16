@@ -5,8 +5,8 @@
 --
 hl.config({
   general = {
-    -- gaps_in = 4,
-    -- gaps_out = 8,
+    gaps_in = 4,
+    gaps_out = 8,
     border_size = 2,
   },
 
@@ -32,8 +32,8 @@ hl.config({
     rounding = 8,
 
     -- The 0.05 gap is what marks the focused window.
-    active_opacity = 0.90,
-    inactive_opacity = 0.90,
+    active_opacity = 0.93,
+    inactive_opacity = 0.92,
 
     -- Translucency without blur makes text unreadable over these wallpapers.
     blur = {
@@ -56,10 +56,10 @@ hl.config({
   },
 })
 
-hl.animation({
-  enabled = true,
-  leaf = "workspaces",
-  speed = 5,
-  bezier = "easeOutQuint",
-  style = "slide",
-})
+-- hl.animation({
+--   enabled = true,
+--   leaf = "workspaces",
+--   speed = 5,
+--   bezier = "easeOutQuint",
+--   style = "slide",
+-- })
