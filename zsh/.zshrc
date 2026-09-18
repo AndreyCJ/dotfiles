@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export DOTFILES="$HOME/Dotfiles"
 
 # Homebrew (macOS only)
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -55,8 +56,9 @@ bindkey '^F' autosuggest-accept
 
 # Aliases
 alias reload="source ~/.zshrc"
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias oc="$DOTFILES/bin/podman-oc.sh"
 
 alias ..="cd .."
 alias ...="cd ../.."

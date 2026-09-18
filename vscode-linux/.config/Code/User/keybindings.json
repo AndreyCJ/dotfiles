@@ -29,6 +29,16 @@
 
   {
     "key": "ctrl+n",
+    "command": "selectNextSuggestion",
+    "when": "textInputFocus && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "selectPrevSuggestion",
+    "when": "textInputFocus && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+n",
     "command": "workbench.action.quickOpenSelectNext",
     "when": "inQuickOpen"
   },
