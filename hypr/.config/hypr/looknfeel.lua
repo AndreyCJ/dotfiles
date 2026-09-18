@@ -1,13 +1,11 @@
 -- Change the default Omarchy look'n'feel.
-
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#general
---
---
+
 hl.config({
   general = {
     gaps_in = 4,
     gaps_out = 8,
-    border_size = 2,
+    border_size = 0,
   },
 
   scrolling = {
@@ -31,11 +29,9 @@ hl.config({
     rounding_power = 4,
     rounding = 8,
 
-    -- The 0.05 gap is what marks the focused window.
-    active_opacity = 0.93,
-    inactive_opacity = 0.92,
+    active_opacity = 0.97,
+    inactive_opacity = 0.95,
 
-    -- Translucency without blur makes text unreadable over these wallpapers.
     blur = {
       enabled = true,
       size = 3,
@@ -47,12 +43,20 @@ hl.config({
 
     shadow = {
       enabled = true,
-      range = 4,
-      render_power = 3,
-      color = "rgba(19151099)",
+      range = 6,
+      render_power = 2,
+      -- color = "rgba(19191099)",
+      color = "rgba(20203099)",
       color_inactive = "rgba(19151066)",
     },
 
+  },
+})
+
+hl.window_rule({
+  workspace = "2 silent",
+  match = {
+    class = "Interagent-dev-linux-amd64"
   },
 })
 
@@ -63,3 +67,4 @@ hl.config({
 --   bezier = "easeOutQuint",
 --   style = "slide",
 -- })
+

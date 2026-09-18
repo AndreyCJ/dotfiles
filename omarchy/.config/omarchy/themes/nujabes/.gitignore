@@ -1,0 +1,21 @@
+# Intermediates from assets/make-palette.py. Only the final palette.webp is
+# committed; the SVG and PNG it passes through on the way are not.
+assets/palette.svg
+assets/palette.png
+
+# Local tooling. Useful for maintaining the theme, not for installing it.
+assets/make-palette.py
+
+# Python bytecode from importing the renderer (tests, tooling)
+__pycache__/
+
+# Local coordination and scratch material; never part of the theme
+/exchange/
+
+# Editor and OS noise
+*~
+*.swp
+*.swo
+.DS_Store
+.idea/
+.vscode/

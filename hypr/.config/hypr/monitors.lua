@@ -11,7 +11,7 @@ local host = io.popen("hostname"):read("*l") or os.getenv("HOSTNAME") or ""
 
 if host == "pc" then
   -- Desktop (pc) setup
-  hl.monitor({ output = "DP-1", mode = "1920x1080@144", position = "0x0", scale = 1 })
+  hl.monitor({ output = "DP-1", mode = "1920x1080@160", position = "0x0", scale = 1 })
   hl.monitor({ output = "HDMI-A-2", mode = "1920x1080@70", position = "auto", scale = 1 })
 else
   -- Laptop setup
