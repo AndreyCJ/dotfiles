@@ -25,4 +25,7 @@ quick-terminal-space-behavior = remain
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
+confirm-close-surface = false
 
+custom-shader = ~/Dotfiles/ghostty/.config/ghostty/shaders/cursor_warp.glsl
+custom-shader-animation = always
