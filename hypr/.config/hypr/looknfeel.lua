@@ -3,9 +3,9 @@
 
 hl.config({
   general = {
-    gaps_in = 4,
-    gaps_out = 8,
-    border_size = 0,
+    gaps_in = 4, -- 4
+    gaps_out = 8,-- 8
+    border_size = 2,
   },
 
   scrolling = {
@@ -27,10 +27,10 @@ hl.config({
 
   decoration = {
     rounding_power = 4,
-    rounding = 8,
+    rounding = 8, -- 8
 
-    active_opacity = 0.97,
-    inactive_opacity = 0.95,
+    active_opacity = 0.92,
+    inactive_opacity = 0.91,
 
     blur = {
       enabled = true,
