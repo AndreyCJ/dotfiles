@@ -1,7 +1,4 @@
 {
-  // omarchy-sesh: begin power-menu overrides
-  "system.logout": {"icon":"󰍃","label":"Logout","action":"\"$HOME/.local/bin/omarchy-sesh\" save --label logout --wait || true; exec omarchy-system-logout"},
-  // omarchy-sesh: end power-menu overrides
 
   // Extend the Quickshell Omarchy menu with JSONC.
   //

@@ -7,12 +7,9 @@
           "id": "omarchy.indicators"
         },
         {
-          "id": "techywilbur.pomodoro"
-        },
-        {
-          "id": "omarchy.clock",
           "format": "ddd d MMM HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
           "verticalFormat": "HH\n—\nmm"
         },
         {
@@ -33,8 +30,8 @@
           "id": "omarchy.workspaces"
         },
         {
-          "id": "io.github.joshz7.afterglow",
           "colorMode": "bonfire",
+          "id": "io.github.joshz7.afterglow",
           "showNextButton": true,
           "sparkIntensity": "full",
           "spectrumBars": 28
@@ -48,17 +45,18 @@
           "id": "omarchy.agents"
         },
         {
+          "hidden": [],
           "id": "omarchy.tray",
           "pinned": [
             "Happ"
-          ],
-          "hidden": []
+          ]
         },
         {
-          "id": "bit-dev.system-pills"
+          "id": "techywilbur.pomodoro"
         },
         {
-          "id": "mrpbennett.sesh"
+          "id": "bit-dev.system-pills",
+          "pillOpacity": 0
         },
         {
           "id": "omarchy.bluetooth"
@@ -80,6 +78,7 @@
         }
       ]
     },
+    "position": "top",
     "transparent": false
   },
   "cloneSourceRestores": [
