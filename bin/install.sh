@@ -5,7 +5,7 @@ set -e
 DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 OS="$(uname -s)"
 
-COMMON_STOW_PKGS=(git nvim starship tmux vim wakatime zsh ghostty ssh yazi herdr opencode)
+COMMON_STOW_PKGS=(git nvim starship tmux vim wakatime zsh ghostty ssh yazi herdr opencode mise)
 MACOS_STOW_PKGS=(aerospace vscode-macos)
 LINUX_STOW_PKGS=(vscode-linux hypr omarchy)
 
@@ -107,6 +107,7 @@ remove_conflicting_configs() {
     "$HOME/.config/omarchy" \
     "$HOME/.config/yazi" \
     "$HOME/.config/herdr" \
+    "$HOME/.config/mise" \
     "$HOME/.gitconfig" \
     "$HOME/.vimrc"; do
     if [[ -e "$f" && ! -L "$f" ]]; then
