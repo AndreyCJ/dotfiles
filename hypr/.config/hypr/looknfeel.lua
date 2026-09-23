@@ -3,9 +3,9 @@
 
 hl.config({
   general = {
-    gaps_in = 4, -- 4
-    gaps_out = 8,-- 8
-    border_size = 2,
+    -- gaps_in = 4, -- 4
+    -- gaps_out = 8,-- 8
+    border_size = 0,
   },
 
   scrolling = {
@@ -29,8 +29,8 @@ hl.config({
     rounding_power = 4,
     rounding = 8, -- 8
 
-    active_opacity = 0.93,
-    inactive_opacity = 0.92,
+    active_opacity = 0.95,
+    inactive_opacity = 0.94,
 
     blur = {
       enabled = true,
@@ -46,8 +46,14 @@ hl.config({
       range = 6,
       render_power = 2,
       -- color = "rgba(19191099)",
-      color = "rgba(20203099)",
-      color_inactive = "rgba(19151066)",
+
+      -- color = "rgba(219, 108, 79, 0.03)", -- orange
+      color = "rgba(191, 193, 224, 0.02)",
+      color_inactive = "rgba(00000050)", -- MacOS style shadow
+
+      -- color = "rgba(20203099)",
+      -- color_inactive = "rgba(19151066)",
+      --
     },
 
   },
