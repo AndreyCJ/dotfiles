@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export DOTFILES="$HOME/Dotfiles"
+export DOTFILES="${${(%):-%N}:A:h:h}"
 
 # Homebrew (macOS only)
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -9,8 +9,6 @@ fi
 
 # export PATH="$HOME/Dotfiles/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
-
-# opencode
 export PATH=$HOME/.opencode/bin:$PATH
 
 ZSH_THEME="geoffgarside"
