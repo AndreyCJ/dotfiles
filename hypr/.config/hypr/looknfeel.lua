@@ -6,12 +6,15 @@ hl.config({
     -- gaps_in = 4, -- 4
     -- gaps_out = 8,-- 8
     border_size = 2,
+    allow_tearing = false,
+    resize_on_border = true,
   },
 
   scrolling = {
     focus_fit_method = 1,
     follow_focus = true,
     follow_min_visible = 0.3,
+    explicit_column_widths = "0.49, 0.98",
   },
 
   input = {
@@ -29,13 +32,13 @@ hl.config({
     rounding_power = 4,
     rounding = 12, -- 8
 
-    active_opacity = 0.95,
-    inactive_opacity = 0.94,
+    active_opacity = 0.97,
+    inactive_opacity = 0.95,
 
     blur = {
       enabled = true,
-      size = 3,
-      passes = 3,
+      size = 4,
+      passes = 2,
       brightness = 0.8,
       contrast = 0.9,
       new_optimizations = true
