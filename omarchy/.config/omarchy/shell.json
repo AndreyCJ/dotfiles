@@ -2,9 +2,39 @@
   "bar": {
     "centerAnchor": "omarchy.clock",
     "layout": {
+      "left": [
+        {
+          "id": "io.github.ehlxr.advanced-workspaces"
+        },
+        {
+          "colorMode": "bonfire",
+          "id": "io.github.joshz7.afterglow",
+          "showNextButton": true,
+          "sparkIntensity": "full",
+          "spectrumBars": 28
+        },
+        {
+          "id": "omarchy.active-window"
+        }
+      ],
       "center": [
         {
-          "id": "omarchy.indicators"
+          "id": "omarchy.indicators",
+          "items": [
+            "Dictation",
+            "ScreenRecording",
+            "Reminder",
+            "NightLight",
+            "StayAwake"
+          ]
+        },
+        {
+          "id": "njpatel.omapager",
+          "edgeSpacing": 8,
+          "historyHours": 24
+        },
+        {
+          "id": "techywilbur.pomodoro"
         },
         {
           "format": "ddd d MMM HH:mm",
@@ -22,24 +52,6 @@
           "id": "omarchy.keyboard-layout"
         }
       ],
-      "left": [
-        {
-          "id": "omarchy.media"
-        },
-        {
-          "id": "io.github.ehlxr.advanced-workspaces"
-        },
-        {
-          "colorMode": "bonfire",
-          "id": "io.github.joshz7.afterglow",
-          "showNextButton": true,
-          "sparkIntensity": "full",
-          "spectrumBars": 28
-        },
-        {
-          "id": "omarchy.active-window"
-        }
-      ],
       "right": [
         {
           "id": "omarchy.agents"
@@ -50,9 +62,6 @@
           "pinned": [
             "Happ"
           ]
-        },
-        {
-          "id": "techywilbur.pomodoro"
         },
         {
           "id": "bit-dev.system-pills",
@@ -71,6 +80,9 @@
           "id": "omarchy.audio"
         },
         {
+          "id": "omarchy.media"
+        },
+        {
           "id": "omarchy.monitor"
         },
         {
@@ -79,23 +91,18 @@
       ]
     },
     "position": "top",
-    "transparent": false
+    "transparent": false,
+    "id": "omarchy.bar"
   },
-  "cloneSourceRestores": [
-    "gr4vty.notifications"
-  ],
   "disabledPlugins": [
-    "omarchy.notifications",
-    "omarchy.media"
+    "omarchy.media",
+    "omarchy.notifications"
   ],
   "idle": {
     "lock": 300,
     "screensaver": 150
   },
   "plugins": [
-    {
-      "id": "gr4vty.notifications"
-    },
     {
       "id": "io.github.codesmith28.omalt-tab"
     },

@@ -19,6 +19,7 @@ OMARCHY_PLUGINS=(
   "https://github.com/Codesmith28/omalt-tab.git"
   "https://github.com/ehlxr/advanced-workspaces.git"
   "https://github.com/SmoothPixels/cursor-accent.git"
+  "https://github.com/njpatel/omapager.git"
 )
 
 install_macos() {
