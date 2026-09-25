@@ -15,7 +15,6 @@ LINUX_SYSTEM_PKGS=(stow eza fzf zoxide starship mise tmux ghostty bitwarden)
 OMARCHY_PLUGINS=(
   "https://github.com/JoshZ7/omarchy-afterglow.git"
   "https://github.com/techywilbur/omarchy-pomodoro.git"
-  "https://github.com/osesantos/omarchy-vitals.git"
   "https://github.com/Codesmith28/omalt-tab.git"
   "https://github.com/ehlxr/advanced-workspaces.git"
   "https://github.com/SmoothPixels/cursor-accent.git"
