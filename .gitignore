@@ -40,6 +40,9 @@ opencode/.config/opencode/package.json
 opencode/.config/opencode/package-lock.json
 opencode/.config/opencode/.gitignore
 opencode/.config/opencode/*.bak
+opencode/.config/opencode/plugins/
+opencode/.config/opencode/herdr-opencode/
+opencode/.config/opencode/herdr-tui-session.js
 
 # Omarchy shell plugin: live checkout managed by `omarchy plugin add`/`omarchy plugin update`
 omarchy/.config/omarchy/plugins/io.github.joshz7.afterglow/
