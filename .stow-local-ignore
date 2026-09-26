@@ -1,3 +1,9 @@
+# WARNING: stow 2.4.1 does not read a .stow-local-ignore at the stow dir root,
+# so every pattern below is inert -- kept only to document intent. Honoured: a
+# per-package .stow-local-ignore; $ENV{HOME}/.stow-global-ignore, which
+# replaces rather than extends stow's built-in skips and must repeat them; or
+# --ignore=REGEX on stow's command line (a suffix match). To make these bite,
+# copy them per package, add that global file, or pass --ignore to stow.
 .git
 .DS_Store
 \.DS_Store
@@ -21,10 +27,13 @@
 ^/docs
 ^/bin
 ^/macos
-# Linux: don't stow macOS icon (ignore Ghostty.icns anywhere)
+# Ghostty: not symlinks of their own -- stow links .config/ghostty as one
+# directory, so a path here is the checkout's own file. Deleting it under $HOME
+# deletes the repo file, and stow will not restore it. Nothing reads them from
+# $HOME: merge-ghostty-config.sh reads the repo. Move them out of the ghostty
+# package and repoint that script to stop the reach-through.
 .*Ghostty\.icns
 .*\.icns
-# Ghostty: per-platform files consumed by bin/merge-ghostty-config.sh, never stowed
 .*linux\.conf
 .*macos\.conf
 # Aerospace backup file

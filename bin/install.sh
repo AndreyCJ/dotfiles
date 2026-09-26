@@ -42,7 +42,7 @@ install_macos() {
   mkdir -p "$HOME/.ssh"
   mkdir -p "$HOME/Library/Application Support/Code/User"
 
-  remove_conflicting_configs
+  remove_conflicting_configs "${COMMON_CONFLICTS[@]}" "${MACOS_CONFLICTS[@]}"
   stow_dotfiles "${MACOS_STOW_PKGS[@]}"
 }
 
@@ -136,7 +136,7 @@ install_linux() {
   mkdir -p "$HOME/.ssh"
   mkdir -p "$HOME/.config/Code/User"
 
-  remove_conflicting_configs
+  remove_conflicting_configs "${COMMON_CONFLICTS[@]}" "${LINUX_CONFLICTS[@]}"
   stow_dotfiles "${LINUX_STOW_PKGS[@]}"
   install_omarchy_plugins
   link_omarchy_theme
@@ -151,28 +151,75 @@ install_oh_my_zsh() {
   fi
 }
 
+# Paths where a real file or directory would block stow. These are deleted: the
+# dotfiles are the source of truth, so a config on this machine that conflicts
+# with the repo is rewritten from the repo.
+#
+# A path belongs in the list matching the stow package that owns it -- COMMON for
+# everything in COMMON_STOW_PKGS, LINUX/MACOS for the OS-specific ones. Filing a
+# shared package under one OS leaves that platform uncleared, and stow then
+# aborts on a path nothing was supposed to leave behind.
+COMMON_CONFLICTS=(
+  "$HOME/.gitconfig"
+  "$HOME/.vimrc"
+  "$HOME/.zshrc"
+  "$HOME/.ssh/config"
+  "$HOME/.config/starship.toml"
+  "$HOME/.config/tmux/tmux.conf"
+  "$HOME/.config/ghostty/config"
+  "$HOME/.config/nvim"
+  "$HOME/.config/yazi"
+  "$HOME/.config/herdr"
+  # Only the file, not the whole ~/.config/mise directory: stow owns nothing
+  # else in there, and clearing the directory would take the rest of mise's
+  # state with it.
+  "$HOME/.config/mise/config.toml"
+)
+
+LINUX_CONFLICTS=(
+  "$HOME/.config/hypr"
+  "$HOME/.config/omarchy"
+  "$HOME/.config/Code/User/settings.json"
+  "$HOME/.config/Code/User/keybindings.json"
+)
+
+MACOS_CONFLICTS=(
+  "$HOME/Library/Application Support/Code/User/settings.json"
+  "$HOME/Library/Application Support/Code/User/keybindings.json"
+)
+
+# Deletes a real file or directory that would block stow, so the repo's version
+# is linked in its place.
+remove_conflicting_path() {
+  local f="$1" parent
+  parent="$(dirname -- "$f")"
+
+  # Never delete through a symlinked parent. Stow links whole directories, so
+  # from run 2 on ~/.config/ghostty is a symlink into this checkout and
+  # ~/.config/ghostty/config is a tracked file inside it -- a `! -L` test on the
+  # leaf cannot see that, and deleting it loses a dotfile stow cannot restore.
+  if [[ -L "$parent" ]]; then
+    return 0
+  fi
+
+  # A dangling symlink resolves to nothing, so dropping it loses nothing. One
+  # that still resolves is left alone: it may point at another checkout on
+  # purpose, and overwriting it is a call for the user, not a sweep.
+  if [[ -L "$f" && ! -e "$f" ]]; then
+    rm -f -- "$f" || true
+    echo "  Removed dangling symlink $f"
+  elif [[ -e "$f" && ! -L "$f" ]]; then
+    echo "  Removing $f"
+    rm -rf -- "$f"
+  fi
+}
+
+# Clears the way for stow over the given paths.
 remove_conflicting_configs() {
   echo "Removing existing configs that conflict with repo..."
-  for f in \
-    "$HOME/.config/nvim" \
-    "$HOME/.config/ghostty/config" \
-    "$HOME/.config/starship.toml" \
-    "$HOME/.config/tmux/tmux.conf" \
-    "$HOME/.config/Code/User/settings.json" \
-    "$HOME/.config/Code/User/keybindings.json" \
-    "$HOME/.zshrc" \
-    "$HOME/.ssh/config" \
-    "$HOME/.config/hypr" \
-    "$HOME/.config/omarchy" \
-    "$HOME/.config/yazi" \
-    "$HOME/.config/herdr" \
-    "$HOME/.config/mise" \
-    "$HOME/.gitconfig" \
-    "$HOME/.vimrc"; do
-    if [[ -e "$f" && ! -L "$f" ]]; then
-      echo "  Removing $f"
-      rm -rf "$f"
-    fi
+  local f
+  for f in "$@"; do
+    remove_conflicting_path "$f"
   done
 }
 
@@ -185,7 +232,13 @@ stow_dotfiles() {
     -name '.DS_Store' -delete 2>/dev/null || true
 
   cd "$DOTFILES"
-  stow -v "${COMMON_STOW_PKGS[@]}" "$@"
+  # No --adopt: it imports an existing target *into the package*, so a stray
+  # ~/.config/opencode/opencode.json would overwrite the repo's tracked dotfile.
+  # Conflict lists cannot cover every stowed path, so an uncovered one has to
+  # fail loudly here rather than destroy a file stow cannot restore. -R re-links
+  # targets that are already links; plain stow would no-op, so it is belt and
+  # braces rather than what makes run 2 converge.
+  stow -R -v "${COMMON_STOW_PKGS[@]}" "$@"
 }
 
 install_omarchy_plugins() {
@@ -218,21 +271,43 @@ set_default_shell() {
 }
 
 setup_wakatime() {
-  # Handle wakatime env (if .env with WAKAPI_KEY exists)
-  if [[ -f "$DOTFILES/.env" ]]; then
-    source "$DOTFILES/.env"
-    if [[ -n "${WAKAPI_KEY:-}" ]]; then
-      echo "Generating wakatime config from template..."
-      if command -v envsubst >/dev/null 2>&1; then
-        envsubst <"$DOTFILES/wakatime/.wakatime.cfg.template" >"$HOME/.wakatime.cfg"
-      else
-        # Fallback without envsubst
-        sed "s|\${WAKAPI_KEY}|$WAKAPI_KEY|g" "$DOTFILES/wakatime/.wakatime.cfg.template" >"$HOME/.wakatime.cfg"
-      fi
-    fi
-  elif [[ -f "$DOTFILES/wakatime/.wakatime.cfg.template" ]] && command -v envsubst >/dev/null 2>&1 && [[ -f "$HOME/.env" ]]; then
-    envsubst <"$DOTFILES/wakatime/.wakatime.cfg.template" >"$HOME/.wakatime.cfg" 2>/dev/null || true
+  # The checkout's own .env wins; ~/.env is the fallback the old `elif` branch
+  # half-supported, where it rendered from the ambient environment without ever
+  # sourcing the file, so it only worked if the key happened to be exported.
+  # Sourcing it makes that path actually work.
+  local env_file="$DOTFILES/.env"
+  [[ -f "$env_file" ]] || env_file="$HOME/.env"
+  [[ -f "$env_file" ]] || return 0
+  # shellcheck disable=SC1091
+  source "$env_file"
+  [[ -n "${WAKAPI_KEY:-}" ]] || return 0
+
+  # ~/.wakatime.cfg is generated, not stowed, so this is its only writer and the
+  # render always wins -- a hand edit is overwritten like any other config.
+  local rendered
+  rendered="$(mktemp)" || return 0
+  if command -v envsubst >/dev/null 2>&1; then
+    # The prefix is load-bearing: envsubst substitutes from the *environment*,
+    # and the `source` above set a shell variable, not an exported one. Without
+    # it an unexported WAKAPI_KEY renders `api_key = ` and breaks a working
+    # config. Prefixing just this command keeps the key out of the installer's
+    # other subprocesses.
+    WAKAPI_KEY="$WAKAPI_KEY" envsubst \
+      <"$DOTFILES/wakatime/.wakatime.cfg.template" >"$rendered"
+  else
+    # Expands in the shell, so it never had the problem above.
+    sed "s|\${WAKAPI_KEY}|$WAKAPI_KEY|g" \
+      "$DOTFILES/wakatime/.wakatime.cfg.template" >"$rendered"
   fi
+
+  # Compare before writing: an unconditional write bumps the mtime, and a second
+  # run that differs from the first in the one way a user can see is not
+  # idempotent. A failed cp aborts under `set -e` and skips the rm below, so the
+  # render survives as the only correct copy.
+  if ! cmp -s "$rendered" "$HOME/.wakatime.cfg"; then
+    cp -- "$rendered" "$HOME/.wakatime.cfg"
+  fi
+  rm -f "$rendered"
 }
 
 main() {
