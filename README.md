@@ -36,6 +36,29 @@ stow git nvim starship tmux ghostty ...
 After stowing, close and reopen your terminal for the new shell config to
 take effect.
 
+## System packages
+
+Each OS gets its packages from a plain text file at the repo root, so adding
+one is a one-line edit rather than a change to the installer:
+
+| OS | File | Read by |
+| --- | --- | --- |
+| macOS | `Brewfile` | `brew bundle` |
+| Linux | `Pacfile` | `read_pacfile` in `bin/install.sh` |
+
+`Pacfile` is one package per line. Blank lines and anything after a `#` are
+ignored, so entries can be grouped under comments however you like. Only list
+what you want on a machine — Omarchy already provides the kernel, boot chain,
+PipeWire/Wayland plumbing, Hyprland core and the `omarchy-*` framework
+packages.
+
+Any name that is not in an enabled sync database is treated as AUR-only and
+split out for `yay`, because pacman resolves its whole batch up front and
+aborts everything on a single name it cannot find. The split depends only on
+your repositories, not on what happens to be installed already, so a fresh
+machine and an existing one take the same path. If `yay` is missing,
+`bin/install.sh` warns and skips those names instead of failing.
+
 ## Omarchy shell plugins
 
 Omarchy plugins are installed by `bin/install.sh` and live in

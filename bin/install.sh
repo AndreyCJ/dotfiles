@@ -9,8 +9,8 @@ COMMON_STOW_PKGS=(git nvim starship tmux vim wakatime zsh ghostty ssh yazi herdr
 MACOS_STOW_PKGS=(aerospace vscode-macos)
 LINUX_STOW_PKGS=(vscode-linux hypr omarchy)
 
-# Note: MacOS system packages are located in Brewfile
-LINUX_SYSTEM_PKGS=(stow eza fzf zoxide starship mise tmux ghostty bitwarden)
+# Note: MacOS system packages are located in Brewfile, Linux ones in Pacfile
+PACFILE="$DOTFILES/Pacfile"
 
 OMARCHY_PLUGINS=(
   "https://github.com/JoshZ7/omarchy-afterglow.git"
@@ -46,32 +46,90 @@ install_macos() {
   stow_dotfiles "${MACOS_STOW_PKGS[@]}"
 }
 
+# Fills LINUX_SYSTEM_PKGS and LINUX_AUR_PKGS with the package names listed in
+# Pacfile. Blank lines and anything after a "#" are treated as comments, so the
+# file can be organised into sections and annotated like the Brewfile is.
+read_pacfile() {
+  if [ ! -f "$PACFILE" ]; then
+    echo "ERROR: Pacfile not found at $PACFILE" >&2
+    exit 1
+  fi
+
+  # Every name the sync databases can serve, collected in one pass because a
+  # per-package `pacman -Si` costs ~0.5s and the list runs past a hundred.
+  # Deliberately not widened to `pacman -Qq`: a package that is merely
+  # installed locally would then route differently on a fresh machine.
+  local -A installable=()
+  local name
+  while read -r name; do
+    if [ -n "$name" ]; then
+      installable["$name"]=1
+    fi
+  done < <(pacman -Sl 2>/dev/null | awk '{print $2}')
+
+  # Whatever is left is AUR-only. pacman aborts the entire batch on a name it
+  # cannot resolve, so those have to be split out and sent to an AUR helper.
+  LINUX_SYSTEM_PKGS=()
+  LINUX_AUR_PKGS=()
+  local line
+  while IFS= read -r line || [ -n "$line" ]; do
+    line="${line%%#*}"
+    line="${line#"${line%%[![:space:]]*}"}"
+    line="${line%"${line##*[![:space:]]}"}"
+    if [ -n "$line" ]; then
+      if [ -n "${installable[$line]:-}" ]; then
+        LINUX_SYSTEM_PKGS+=("$line")
+      else
+        LINUX_AUR_PKGS+=("$line")
+      fi
+    fi
+  done <"$PACFILE"
+}
+
+# No output suppression here: a package name pacman cannot resolve silently
+# takes the whole batch down with it, so keep the errors visible.
+install_pacman_pkgs() {
+  if ! sudo pacman -S --needed --noconfirm "${LINUX_SYSTEM_PKGS[@]}"; then
+    echo "WARNING: some packages failed to install, see the output above" >&2
+  fi
+}
+
+install_aur_pkgs() {
+  if [ ${#LINUX_AUR_PKGS[@]} -eq 0 ]; then
+    return 0
+  fi
+
+  echo "Installing AUR packages (${LINUX_AUR_PKGS[*]})..."
+  if ! command -v yay >/dev/null 2>&1; then
+    echo "WARNING: no AUR helper found, skipping: ${LINUX_AUR_PKGS[*]}" >&2
+    echo "         install them by hand, e.g. yay -S ${LINUX_AUR_PKGS[0]}" >&2
+    return 0
+  fi
+
+  if ! yay -S --needed --noconfirm "${LINUX_AUR_PKGS[@]}"; then
+    echo "WARNING: some AUR packages failed to install, see the output above" >&2
+  fi
+}
+
 install_linux() {
-  echo "Installing system packages..."
+  echo "Installing system packages (Pacfile)..."
+  read_pacfile
+  echo "Installing ${#LINUX_SYSTEM_PKGS[@]} repo packages and ${#LINUX_AUR_PKGS[@]} AUR packages..."
 
-  if ! command -v stow >/dev/null 2>&1; then
-    echo "Installing stow..."
-    sudo pacman -S --needed --noconfirm stow
+  if [ ${#LINUX_SYSTEM_PKGS[@]} -gt 0 ]; then
+    # Install common tools via pacman (fallback if omarchy pkg not available)
+    if command -v omarchy >/dev/null 2>&1; then
+      # Prefer omarchy pkg wrapper
+      omarchy pkg add --needed "${LINUX_SYSTEM_PKGS[@]}" 2>/dev/null ||
+        install_pacman_pkgs
+    else
+      install_pacman_pkgs
+    fi
   fi
 
-  if ! command -v zsh >/dev/null 2>&1; then
-    echo "Installing zsh..."
-    sudo pacman -S --needed --noconfirm zsh
-  fi
-
-  # Install common tools via pacman (fallback if omarchy pkg not available)
-  echo "Installing common tools (${LINUX_SYSTEM_PKGS[*]}, git)..."
-  if command -v omarchy >/dev/null 2>&1; then
-    # Prefer omarchy pkg wrapper
-    omarchy pkg add --needed "${LINUX_SYSTEM_PKGS[@]}" 2>/dev/null ||
-      sudo pacman -S --needed --noconfirm "${LINUX_SYSTEM_PKGS[@]}" git 2>/dev/null || true
-  else
-    sudo pacman -S --needed --noconfirm "${LINUX_SYSTEM_PKGS[@]}" git 2>/dev/null || true
-  fi
+  install_aur_pkgs
 
   install_oh_my_zsh
-
-  sudo pacman -S --needed --noconfirm zsh-autosuggestions zsh-syntax-highlighting 2>/dev/null || true
 
   echo "Creating config directories..."
   mkdir -p "$HOME/.config"

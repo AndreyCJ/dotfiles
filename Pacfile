@@ -1,0 +1,98 @@
+# Linux system packages, one per line. The Linux counterpart to Brewfile.
+#
+# Read by bin/install.sh (see read_pacfile). Blank lines and everything after
+# a `#` are ignored, so group entries under comments however you like.
+#
+# Only list what you actually want on a machine. Omarchy already provides the
+# kernel, boot chain, PipeWire/Wayland plumbing, Hyprland core and the
+# omarchy-* framework packages, so those are deliberately left out here.
+#
+# Any entry that is not in an enabled sync database is treated as AUR-only and
+# routed to yay automatically, since pacman resolves its whole batch up front
+# and aborts everything on a single name it cannot find. The split depends only
+# on your repositories, not on what happens to be installed already, so a fresh
+# machine and an existing one take the same path.
+#
+# Deliberately excluded: linux, linux-firmware, mkinitcpio, limine,
+# efibootmgr, sof-firmware, intel-ucode, wireless-regdb, kernel-modules-hook,
+# btrfs-progs, dosfstools, exfatprogs, zram-generator, pipewire*, wireplapper,
+# libpulse, vulkan-intel, vpl-gpu-rt, intel-media-driver, quickshell, hyprland,
+# hyprland-guiutils, asdcontrol, uwsm, xdg-terminal-exec, pamixer, sddm,
+# fprintd, libfprint, gnome-keyring, networkmanager, bluez*, xdg-desktop-portal-*,
+# nss-mdns, base, pacman-contrib, elsewhen.
+
+# --- Bootstrap -------------------------------------------------------------
+# Needed before the rest of the installer can do its job.
+stow
+git
+sudo
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+
+# --- Shell and terminal ----------------------------------------------------
+ghostty
+starship
+herdr
+tmux
+bash-completion
+zoxide
+fzf
+eza
+bat
+ripgrep
+fd
+tldr
+less
+ex-vi-compat
+sushi
+man-db
+
+# --- CLI and development ---------------------------------------------------
+neovim
+mise-bin
+go
+clang
+lazygit
+btop
+fastfetch
+usage
+whois
+visual-studio-code-bin
+
+# --- Dotfiles and desktop tooling ------------------------------------------
+yay
+hyprpicker
+hyprsunset
+brightnessctl
+ddcutil
+
+# --- Browsers --------------------------------------------------------------
+# brave-bin and happ-desktop-bin are AUR-only; the rest come from a repo.
+firefox
+brave-bin
+
+# --- Media -----------------------------------------------------------------
+cava
+alsa-utils
+ffmpegthumbnailer
+yt-dlp
+imv
+gpu-screen-recorder
+
+# --- Containers and networking ---------------------------------------------
+localsend
+
+# --- Fonts -----------------------------------------------------------------
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-firacode-nerd
+ttf-ia-writer
+ttf-jetbrains-mono-nerd-basic
+ttfx
+woff2-font-awesome
+
+# --- System tweaks and other apps ------------------------------------------
+discord
+happ-desktop-bin
