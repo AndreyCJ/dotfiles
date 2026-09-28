@@ -30,15 +30,27 @@
 
 -- o.bind("SUPER + TAB", "Alt-Tab switcher", hl.dsp.global("omarchy-alttab:next"), { repeating = true })
 
-
-
+-- hl.bind() appends and never replaces: a second bind on the same combo runs
+-- alongside the first, in registration order. Unbinding first is what makes
+-- this a rebind, and it clears every bind on the combo, not just the first.
+-- hl.unbind matches the key string case-insensitively, so this also reaches
+-- Omarchy's own defaults.
+local function rebind(keys, description, dispatcher, options)
+  hl.unbind(keys)
+  if type(dispatcher) == "string" then
+    dispatcher = hl.dsp.exec_cmd(dispatcher)
+  end
+  local opts = options or {}
+  opts.description = description
+  hl.bind(keys, dispatcher, opts)
+end
 
 
 -- Vim-style window navigation. The arrow keys keep working as duplicates.
 o.bind("SUPER + H", "Focus on left window", hl.dsp.focus({ direction = "l" }))
-o.rebind("SUPER + J", "Focus on below window", hl.dsp.focus({ direction = "d" }))
-o.rebind("SUPER + K", "Focus on above window", hl.dsp.focus({ direction = "u" }))
-o.rebind("SUPER + L", "Focus on right window", hl.dsp.focus({ direction = "r" }))
+rebind("SUPER + J", "Focus on below window", hl.dsp.focus({ direction = "d" }))
+rebind("SUPER + K", "Focus on above window", hl.dsp.focus({ direction = "u" }))
+rebind("SUPER + L", "Focus on right window", hl.dsp.focus({ direction = "r" }))
 
 o.bind("SUPER + SHIFT + H", "Swap window to the left", hl.dsp.window.swap({ direction = "l" }))
 o.bind("SUPER + SHIFT + J", "Swap window down", hl.dsp.window.swap({ direction = "d" }))
@@ -47,7 +59,7 @@ o.bind("SUPER + SHIFT + L", "Swap window to the right", hl.dsp.window.swap({ dir
 
 o.bind("SUPER + ALT + H", "Move window to group on left", hl.dsp.window.move({ into_group = "l" }))
 o.bind("SUPER + ALT + J", "Move window to group on bottom", hl.dsp.window.move({ into_group = "d" }))
-o.rebind("SUPER + ALT + K", "Move window to group on top", hl.dsp.window.move({ into_group = "u" }))
+rebind("SUPER + ALT + K", "Move window to group on top", hl.dsp.window.move({ into_group = "u" }))
 o.bind("SUPER + ALT + L", "Move window to group on right", hl.dsp.window.move({ into_group = "r" }))
 
 o.bind("SUPER + SHIFT + ALT + H", "Move workspace to left monitor", hl.dsp.workspace.move({ monitor = "l" }))
@@ -59,15 +71,12 @@ o.bind("SUPER + SHIFT + ALT + L", "Move workspace to right monitor", hl.dsp.work
 o.bind("SUPER + SEMICOLON", "Toggle window split", hl.dsp.layout("togglesplit"))
 o.bind("SUPER + ALT + SEMICOLON", "Toggle workspace layout", "omarchy-hyprland-workspace-layout-toggle")
 
--- Full width: maximizes the window over the workspace, hiding the others.
-o.rebind("SUPER + ALT + F", "Full width", hl.dsp.window.fullscreen({ mode = "maximized" }))
-
 -- Scrolling-layout full width. colresize only resizes the focused column, so the
 -- other windows stay put and the workspace is still scrollable. Takes over from
 -- "Tiled full screen", whose fullscreen_state dispatcher no-ops in this build.
 -- colresize is implemented only by the scrolling layout, so this does nothing
 -- on dwindle.
-o.rebind("SUPER + CTRL + F", "Full width (scrolling)", hl.dsp.layout("colresize +conf"))
+rebind("SUPER + CTRL + F", "Full width (scrolling)", hl.dsp.layout("colresize +conf"))
 
 -- Reclaim / for the help menus. SUPER + SHIFT + SLASH ("Passwords") was
 -- unreachable anyway: on a US layout Super + / yields keysym 'slash' with only
@@ -75,8 +84,8 @@ o.rebind("SUPER + CTRL + F", "Full width (scrolling)", hl.dsp.layout("colresize 
 -- Reach the others with `omarchy launch 1password` and
 -- `omarchy hyprland monitor scaling <n>`.
 hl.unbind("SUPER + SHIFT + SLASH")
-o.rebind("SUPER + SLASH", "Keybindings", "omarchy-menu-keybindings")
-o.rebind("SUPER + ALT + SLASH", "Tmux keybindings", "omarchy-menu-tmux-keybindings")
+rebind("SUPER + SLASH", "Keybindings", "omarchy-menu-keybindings")
+rebind("SUPER + ALT + SLASH", "Tmux keybindings", "omarchy-menu-tmux-keybindings")
 
 -- Move the notification binds off ','. The SHIFT+comma and SHIFT+ALT+comma ones
 -- could never fire: on a US layout Shift+, emits keysym 'less', not 'comma', and
@@ -93,15 +102,10 @@ o.bind("SUPER + CTRL + backslash", "Toggle silencing notifications", "omarchy-to
 o.bind("SUPER + ALT + backslash", "Invoke last notification", "omarchy-shell notifications invokeLast")
 o.bind("SUPER + SHIFT + ALT + backslash", "Open notification history", "omarchy-shell notifications showHistory")
 
--- -- bindings.lua: Hyprland & Omarchy bindings for omalt-tab window switcher
-
 hl.unbind("SUPER + TAB")
 hl.unbind("SUPER + SHIFT + TAB")
 o.bind("SUPER + TAB", "Focus on next window", hl.dsp.window.cycle_next(), { repeating = true })
 o.bind("SUPER + SHIFT + TAB", "Focus on previous window", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
-
-hl.unbind("ALT + TAB")
-hl.unbind("ALT + SHIFT + TAB")
 
 local omalt_tab = os.getenv("HOME") .. "/.config/omarchy/plugins/io.github.codesmith28.omalt-tab/hypr/bindings.lua"
 local f = io.open(omalt_tab, "r")
