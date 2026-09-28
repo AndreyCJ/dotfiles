@@ -70,7 +70,7 @@ ddcutil
 # --- Browsers --------------------------------------------------------------
 # brave-bin and happ-desktop-bin are AUR-only; the rest come from a repo.
 firefox
-brave-bin
+brave-origin-bin
 
 # --- Media -----------------------------------------------------------------
 cava
@@ -96,3 +96,4 @@ woff2-font-awesome
 # --- System tweaks and other apps ------------------------------------------
 discord
 happ-desktop-bin
+bitwarden
