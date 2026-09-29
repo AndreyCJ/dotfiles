@@ -10,7 +10,6 @@
 # before this file. Re-run that script after editing this file conf or the
 # platform confs. Keys set here win over the generated file.
 
-theme = Adventure
 config-file = ?~/.local/state/omarchy/current/theme/ghostty.conf
 clipboard-read = allow
 clipboard-write = allow
