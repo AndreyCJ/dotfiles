@@ -51,3 +51,11 @@ require("lazy").setup({
     },
   },
 })
+
+-- Set up outside the spec list on purpose. lazy indexes specs by dir as well as
+-- by name, so a second spec with dir = stdpath("config") -- the shape
+-- theme-hotreload uses for its LazyReload handler -- is merged into that plugin
+-- instead of registered, and only one of the two config functions survives. A
+-- theme fallback set up here cannot collide with a spec, and runs late enough
+-- that lazy has already loaded the eager plugins.
+require("config.ghostty-theme").setup()

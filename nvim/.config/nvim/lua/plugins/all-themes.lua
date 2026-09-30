@@ -6,6 +6,11 @@ return {
 	-- top of aether, so the single-theme plugins below (ethereal, vantablack,
 	-- white, monokai-pro, miasma) are only reached by Omarchy 3.8, which ships a
 	-- neovim.lua per theme. Keep them until 3.8 is out of support.
+	--
+	-- Not an Omarchy theme: lua/config/ghostty-theme.lua maps the name of the
+	-- theme Ghostty is configured with onto one of these colorschemes on a
+	-- machine that has no Omarchy theme of its own. Listed here so lazy can
+	-- resolve the name the same way it resolves an Omarchy one.
 	{
 		"ribru17/bamboo.nvim",
 		lazy = true,
@@ -109,6 +114,12 @@ return {
 	},
 	{
 		"omacom-io/lumon.nvim",
+		lazy = true,
+		priority = 1000,
+	},
+	-- Ghostty ships Ayu, Ayu Light, and Ayu Mirage; the names carry over as-is.
+	{
+		"Shatur/neovim-ayu",
 		lazy = true,
 		priority = 1000,
 	},
