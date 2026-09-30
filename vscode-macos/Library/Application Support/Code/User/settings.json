@@ -165,8 +165,8 @@
   "workbench.layoutControl.enabled": false,
   "workbench.browser.showInTitleBar": true,
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Dark 2026",
-  "workbench.preferredLightColorTheme": "Gruvbox Light Soft",
+  "workbench.preferredDarkColorTheme": "Ship at Sea",
+  "workbench.preferredLightColorTheme": "Flexoki Light Blue",
   "workbench.iconTheme": "vscode-icons"
 
   // -- GitLens settings

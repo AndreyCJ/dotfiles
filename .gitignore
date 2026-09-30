@@ -27,7 +27,9 @@ nvim/.config/nvim/lua/plugins/theme.lua
 # Herdr runtime
 herdr/.config/herdr/*.log
 herdr/.config/herdr/*.sock
+herdr/.config/herdr/*.sock.agent
 herdr/.config/herdr/session.json
+herdr/.config/herdr/session-snapshots/
 herdr/.config/herdr/.plugins.lock
 herdr/.config/herdr/release-notes.json
 

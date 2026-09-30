@@ -36,6 +36,67 @@ stow git nvim starship tmux ghostty ...
 After stowing, close and reopen your terminal for the new shell config to
 take effect.
 
+## Themes
+
+On Omarchy, the theme comes from Omarchy: it writes one palette out to every
+app, and `bin/install.sh` links the Neovim half of it to
+`~/.config/nvim/lua/plugins/theme.lua`.
+
+Without Omarchy, the terminal owns it, and nothing in the config asks which
+machine it is running on — the only question is whether an Omarchy theme
+exists. So the same checkout works on macOS, on Arch with Omarchy, and on an
+Arch box installed without it.
+
+- **Neovim** follows the theme Ghostty is configured with, by name, through the
+  map in `nvim/.config/nvim/lua/config/ghostty-theme.lua`. `Ayu` becomes
+  `ayu-dark`, `Ayu Light` becomes `ayu-light`, and Flexoki's two names become
+  `flexoki-dark` / `flexoki-light`. A theme that is not in the map falls back to
+  the LazyVim default rather than to a wrong guess. Switching Ghostty to a theme
+  worth matching by hand means adding a row there and the plugin providing that
+  colorscheme to `lua/plugins/all-themes.lua`, so lazy can resolve the name.
+  Re-apply inside a running Neovim with `:GhosttyTheme`.
+- **Herdr** needs no help. `theme.name = "terminal"` in its config makes Herdr
+  ask the outer terminal for its palette and use that everywhere, including the
+  accent — so no accent is pinned here. It has to stay a theme name rather than
+  a color list, because Herdr resolves color names against its own built-in X11
+  table — a color set in this shared config would pin one machine's palette into
+  every machine's UI.
+
+### When the theme is reapplied
+
+Ghostty is asked for its resolved config rather than queried live, so the same
+theme applies over SSH, headless, or inside tmux or Herdr. It does mean the
+answer is only as fresh as the last time something asked, which is one of:
+
+| Trigger | When |
+| --- | --- |
+| Neovim startup | `VimEnter` |
+| `FocusGained` | window or tab focus, throttled to once per 30s |
+| `LazyReload` | after `:Lazy reload` |
+| `:GhosttyTheme` | on demand |
+
+`FocusGained` exists because a desktop appearance on a schedule flips at sunset
+without touching any config file. It is not a timer: nothing runs while the
+session sits idle, and the check is skipped entirely unless Ghostty is
+configured with a `light:X,dark:Y` pair, since a single theme name resolves the
+same way whatever the appearance is. If the resolved name matches the theme
+already applied, nothing is reapplied.
+
+A `light:X,dark:Y` pair is resolved through the desktop's appearance, which is
+the one question Ghostty's own `+show-config` cannot answer — it reports the
+pair verbatim and reads as light on a dark desktop. On macOS the appearance is
+read from System Events, which is a GUI agent and reports what is actually in
+effect; `AppleInterfaceStyle` cannot answer it, because with "Switch
+automatically" set macOS derives the style from the time of day and never
+writes the key. GNOME and KDE answer through `org.gnome.desktop.interface
+color-scheme`. A desktop that reports neither is treated as dark, so give
+Ghostty a single theme name on such a machine.
+
+Herdr has a matching lag of its own, for the same reason from the other side:
+it caches the outer terminal's palette on startup, so a palette that changed
+underneath it is not picked up until the attached client is resized. Reloading
+its config does not refresh it — `kill -WINCH <client-pid>` does.
+
 ## System packages
 
 Each OS gets its packages from a plain text file at the repo root, so adding

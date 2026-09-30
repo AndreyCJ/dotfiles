@@ -3,13 +3,24 @@ onboarding = false
 # tmux session -> herdr workspace, tmux window -> herdr tab, tmux pane -> herdr pane
 
 [theme]
-# tmux ran on the terminal's own palette (bg=default, fg=default, ANSI blue accents)
+# "terminal" is what makes this config follow the terminal on any machine: it
+# makes Herdr ask the outer terminal for its palette, so the sidebar, tabs, and
+# borders take their colors from whichever theme that terminal is using -- the
+# Ghostty theme on a machine without Omarchy, the Omarchy theme on one with it.
+# A built-in name (catppuccin, tokyo-night, nord, ...) would pin all of that to
+# a palette that has nothing to do with the terminal. Herdr re-reads the
+# palette when the window resizes, so a palette switched through OSC only needs
+# `kill -WINCH <client-pid>` afterwards to take effect here.
 name = "terminal"
 
 [theme.custom]
 # The active tab is drawn as panel_bg text on an accent background, so panel_bg
-# has to be dark for it to read - same colors as status-left's "#[fg=black,bg=blue]"
-panel_bg = "black"
+# has to be dark for it to read - same colors as status-left's "#[fg=black,bg=blue]".
+# A hex rather than the name "black" because Herdr resolves color names against
+# its own built-in X11 table: a name would pin one machine's palette into a
+# config that every machine shares, while the hexes around it follow the
+# terminal.
+# panel_bg = "#000000"
 
 [terminal]
 # Matches -c "#{pane_current_path}" on every split, window, and session
@@ -69,7 +80,10 @@ previous_workspace = ["prefix+shift+p", "alt+up"]
 next_workspace = ["prefix+shift+n", "alt+down"]
 
 [ui]
-accent = "blue"
+# No accent on purpose. The terminal theme derives one from the palette Herdr
+# queries from the outer terminal, and any color set here or in [theme.custom]
+# would be resolved from Herdr's built-in X11 table instead, pinning this
+# machine's palette into a config every machine shares.
 
 # tmux drew single-line dividers between adjacent panes and no outer frame
 pane_gaps = false
