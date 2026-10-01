@@ -14,11 +14,11 @@ PACFILE="$DOTFILES/Pacfile"
 
 OMARCHY_PLUGINS=(
   "https://github.com/JoshZ7/omarchy-afterglow.git"
-  "https://github.com/techywilbur/omarchy-pomodoro.git"
-  "https://github.com/Codesmith28/omalt-tab.git"
-  "https://github.com/ehlxr/advanced-workspaces.git"
   "https://github.com/SmoothPixels/cursor-accent.git"
   "https://github.com/njpatel/omapager.git"
+  "https://github.com/mtolhuys/fathom.git"
+  "https://github.com/gdeyoung/omarchy-powercore.git"
+  "https://github.com/tornikegomareli/omarchy-spaces.git"
 )
 
 install_macos() {

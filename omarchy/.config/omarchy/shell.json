@@ -4,14 +4,22 @@
     "layout": {
       "left": [
         {
-          "id": "io.github.ehlxr.advanced-workspaces"
-        },
-        {
           "colorMode": "bonfire",
           "id": "io.github.joshz7.afterglow",
           "showNextButton": true,
           "sparkIntensity": "full",
           "spectrumBars": 28
+        },
+        {
+          "id": "tornikegomareli.spaces",
+          "showApps": "all",
+          "iconStyle": "color",
+          "labelStyle": "number",
+          "perMonitor": true,
+          "previewLive": false,
+          "previews": false,
+          "scrollSwitch": false,
+          "animations": false
         },
         {
           "id": "omarchy.active-window"
@@ -79,7 +87,10 @@
           "id": "omarchy.monitor"
         },
         {
-          "id": "omarchy.power"
+          "id": "gdeyoung.powercore",
+          "barExtra": "off",
+          "acProfile": "balanced",
+          "batteryProfile": "power-saver"
         }
       ]
     },
@@ -92,15 +103,15 @@
     "omarchy.notifications"
   ],
   "idle": {
-    "lock": 300,
-    "screensaver": 150
+    "lock": 600,
+    "screensaver": 300
   },
   "plugins": [
     {
-      "id": "io.github.codesmith28.omalt-tab"
+      "id": "io.github.smoothpixels.cursor-accent"
     },
     {
-      "id": "io.github.smoothpixels.cursor-accent"
+      "id": "io.github.mtolhuys.fathom"
     }
   ],
   "version": 1

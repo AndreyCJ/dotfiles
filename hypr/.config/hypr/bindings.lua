@@ -107,9 +107,13 @@ hl.unbind("SUPER + SHIFT + TAB")
 o.bind("SUPER + TAB", "Focus on next window", hl.dsp.window.cycle_next(), { repeating = true })
 o.bind("SUPER + SHIFT + TAB", "Focus on previous window", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
 
-local omalt_tab = os.getenv("HOME") .. "/.config/omarchy/plugins/io.github.codesmith28.omalt-tab/hypr/bindings.lua"
-local f = io.open(omalt_tab, "r")
-if f then
-  f:close()
-  dofile(omalt_tab)
+-- fathom: begin
+do
+  local fathom = os.getenv("HOME") .. "/.config/omarchy/plugins/io.github.mtolhuys.fathom/hypr/fathom.lua"
+  local file = io.open(fathom, "r")
+  if file then
+    file:close()
+    pcall(dofile, fathom)
+  end
 end
+-- fathom: end
