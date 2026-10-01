@@ -1,123 +1,119 @@
-# Reference: https://github.com/i3/i3/blob/next/etc/config
+# i3-like tiling window manager for macOS
+# https://github.com/nikitabobko/AeroSpace
 
-config-version = 2
-
-
+# Start AeroSpace at login
 start-at-login = true
-auto-reload-config = true
 
-
-# In i3, all workspaces are phantom
-persistent-workspaces = []
-
-# i3 doesn't have "normalizations" feature that why we disable them here.
-# But the feature is very helpful.
-# Normalizations eliminate all sorts of weird tree configurations that don't make sense.
-# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+# Normalizations
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-# Possible values: tiles|accordion
-default-root-container-layout = 'tiles'
-
-# Possible values: horizontal|vertical|auto
-# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
-#               tall monitor (anything higher than wide) gets vertical orientation
-default-root-container-orientation = 'auto'
-
-# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
-# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
-# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
-automatically-unhide-macos-hidden-apps = false
-
-
-# Mouse follows focus (Hyprland-like behavior)
+# Mouse follows focus
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = ['move-mouse window-lazy-center']
 
-gaps.inner.horizontal = 4 
-gaps.inner.vertical =   4
-gaps.outer.left =       4
-gaps.outer.bottom =     4
-gaps.outer.top =        4
-gaps.outer.right =      4
+# Gaps between windows (matching Omarchy feel)
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.bottom = 8
+outer.top = 8
+outer.right = 8
 
+# Main mode keybindings (Alt as modifier - vim style)
 [mode.main.binding]
-    # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
-    alt-enter = '''exec-and-forget osascript -e '
-        tell application "Ghostty"
-            new window
-        end tell'
-        '''
-    # i3 wraps focus by default
-    alt-h =         'focus --boundaries-action wrap-around-the-workspace left'
-    alt-j =         'focus --boundaries-action wrap-around-the-workspace down'
-    alt-k =         'focus --boundaries-action wrap-around-the-workspace up'
-    alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
 
-    alt-ctrl-shift-h = 'move left'
-    alt-ctrl-shift-j = 'move down'
-    alt-ctrl-shift-k = 'move up'
-    alt-ctrl-shift-l = 'move right'
+# Focus windows (Alt + hjkl)
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
 
-    alt-shift-h = 'join-with left'
-    alt-shift-l = 'join-with right'
-    alt-shift-k = 'join-with up'
-    alt-shift-j = 'join-with down'
+# Move windows (Alt + Shift + hjkl)
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
 
-    # Consider using 'join-with' command as a 'split' replacement if you want to enable
-    # normalizations
-    alt-b = 'join-with right'
-    alt-v = 'join-with down'
+# Resize windows
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
 
-    alt-f = 'fullscreen'
+# Workspaces (Alt + 1-9)
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
 
-    alt-s = 'layout v_accordion' # 'layout stacking' in i3
-    alt-w = 'layout h_accordion' # 'layout tabbed' in i3
-    alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
-    alt-comma = 'layout accordion horizontal vertical'
+# Move window to workspace (Alt + Shift + 1-9)
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
 
+# Layout controls
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+alt-f = 'fullscreen'
 
-    alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+# Floating toggle
+alt-t = 'layout floating tiling'
 
-    # Not supported, because this command is redundant in AeroSpace mental model.
-    # See: https://nikitabobko.github.io/AeroSpace/guide#floating-windows
-    #alt-space = 'focus toggle_tiling_floating'
+# Split controls
+alt-backslash = 'split horizontal'
+alt-shift-backslash = 'split vertical'
 
-    # `focus parent`/`focus child` are not yet supported, and it's not clear whether they
-    # should be supported at all https://github.com/nikitabobko/AeroSpace/issues/5
-    # alt-a = 'focus parent'
+# Theme toggle (dark/light)
+alt-shift-t = 'exec-and-forget ~/.yadrlite/workstation/macos/scripts/theme-switch.sh toggle'
 
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
-    alt-0 = 'workspace 10'
+# Enter service mode for advanced operations
+alt-shift-semicolon = 'mode service'
 
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace 9'
-    alt-shift-0 = 'move-node-to-workspace 10'
+alt-shift-c = 'reload-config'
 
-    alt-shift-c = 'reload-config'
+alt-r = 'mode resize'
 
-    alt-r = 'mode resize'
+# Service mode for reloading config and advanced operations
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+# Application-specific floating rules
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.SystemPreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.calculator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'layout floating'
 
 [mode.resize.binding]
-    h = 'resize width -50'
-    j = 'resize height +50'
-    k = 'resize height -50'
-    l = 'resize width +50'
-    enter = 'mode main'
-    esc = 'mode main'
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'

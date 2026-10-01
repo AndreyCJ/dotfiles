@@ -1,0 +1,48 @@
+/*
+Flexoki
+MIT License
+Copyright (c) 2023 Steph Ango
+https://stephango.com/flexoki
+
+Omarchy Flexoki Dark: dark palette forced on both Obsidian
+appearance modes so the theme does not follow system/app light mode.
+Source values from kepano/flexoki-obsidian .theme-dark.
+*/
+.theme-dark, .theme-light {
+  --color-red-rgb: 209, 77, 65;
+  --color-orange-rgb: 218, 112, 44;
+  --color-yellow-rgb: 208, 162, 21;
+  --color-green-rgb: 135, 154, 57;
+  --color-cyan-rgb: 58, 169, 159;
+  --color-blue-rgb: 67, 133, 190;
+  --color-purple-rgb: 139, 126, 200;
+  --color-pink-rgb: 206, 93, 151;
+
+  --color-red: #D14D41;
+  --color-orange: #DA702C;
+  --color-yellow: #D0A215;
+  --color-green: #879A39;
+  --color-cyan: #3AA99F;
+  --color-blue: #4385BE;
+  --color-purple: #8B7EC8;
+  --color-pink: #CE5D97;
+
+  --accent-h: 175;
+  --accent-s: 57%;
+  --accent-l: 33%;
+
+  --color-base-00: #100F0F;
+  --color-base-05: #100F0F;
+  --color-base-10: #1C1B1A;
+  --color-base-20: #1C1B1A;
+  --color-base-25: #282726;
+
+  --color-base-30: #282726;
+  --color-base-35: #343331;
+  --color-base-40: #403E3C;
+
+  --color-base-50: #575653;
+  --color-base-60: #6F6E69;
+  --color-base-70: #878580;
+  --color-base-100: #CECDC3;
+}

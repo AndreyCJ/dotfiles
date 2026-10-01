@@ -19,24 +19,6 @@
       ],
       "center": [
         {
-          "id": "omarchy.indicators",
-          "items": [
-            "Dictation",
-            "ScreenRecording",
-            "Reminder",
-            "NightLight",
-            "StayAwake"
-          ]
-        },
-        {
-          "id": "njpatel.omapager",
-          "edgeSpacing": 8,
-          "historyHours": 24
-        },
-        {
-          "id": "techywilbur.pomodoro"
-        },
-        {
           "format": "ddd d MMM HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
           "id": "omarchy.clock",
@@ -47,6 +29,21 @@
         },
         {
           "id": "omarchy.weather"
+        },
+        {
+          "id": "njpatel.omapager",
+          "edgeSpacing": 8,
+          "historyHours": 24
+        },
+        {
+          "id": "omarchy.indicators",
+          "items": [
+            "Dictation",
+            "ScreenRecording",
+            "Reminder",
+            "NightLight",
+            "StayAwake"
+          ]
         },
         {
           "id": "omarchy.keyboard-layout"
@@ -62,10 +59,6 @@
           "pinned": [
             "Happ"
           ]
-        },
-        {
-          "id": "bit-dev.system-pills",
-          "pillOpacity": 0
         },
         {
           "id": "omarchy.bluetooth"

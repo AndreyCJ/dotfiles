@@ -1,0 +1,92 @@
+# Theme: flexoki-dark
+# Based on: https://github.com/kepano/flexoki
+
+# Main bg
+theme[main_bg]="#100F0F"
+
+# Main text color
+theme[main_fg]="#CECDC3"
+
+# Title color for boxes
+theme[title]="#CECDC3"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#4385BE"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#403E3C"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#CECDC3"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#878580"
+
+# Color of text appearing on top of graphs
+theme[graph_text]="#878580"
+
+# Background color of the percentage meters
+theme[meter_bg]="#282726"
+
+# Misc colors for processes box
+theme[proc_misc]="#4385BE"
+
+# CPU box outline color
+theme[cpu_box]="#8B7EC8"
+
+# Memory/disks box outline color
+theme[mem_box]="#879A39"
+
+# Net up/down box outline color
+theme[net_box]="#D14D41"
+
+# Processes box outline color
+theme[proc_box]="#4385BE"
+
+# Box divider line and small boxes line color
+theme[div_line]="#403E3C"
+
+# Temperature graph colors (Green -> Orange -> Red)
+theme[temp_start]="#879A39"
+theme[temp_mid]="#DA702C"
+theme[temp_end]="#D14D41"
+
+# CPU graph colors (Cyan -> Blue -> Purple)
+theme[cpu_start]="#3AA99F"
+theme[cpu_mid]="#4385BE"
+theme[cpu_end]="#8B7EC8"
+
+# Mem/Disk free meter (Purple -> Blue -> Cyan)
+theme[free_start]="#8B7EC8"
+theme[free_mid]="#4385BE"
+theme[free_end]="#3AA99F"
+
+# Mem/Disk cached meter (Cyan -> Blue -> Purple)
+theme[cached_start]="#3AA99F"
+theme[cached_mid]="#4385BE"
+theme[cached_end]="#8B7EC8"
+
+# Mem/Disk available meter (Yellow -> Orange -> Red)
+theme[available_start]="#D0A215"
+theme[available_mid]="#DA702C"
+theme[available_end]="#D14D41"
+
+# Mem/Disk used meter (Green -> Cyan -> Blue)
+theme[used_start]="#879A39"
+theme[used_mid]="#3AA99F"
+theme[used_end]="#4385BE"
+
+# Download graph colors (Yellow -> Orange -> Red)
+theme[download_start]="#D0A215"
+theme[download_mid]="#DA702C"
+theme[download_end]="#D14D41"
+
+# Upload graph colors (Green -> Cyan -> Blue)
+theme[upload_start]="#879A39"
+theme[upload_mid]="#3AA99F"
+theme[upload_end]="#4385BE"
+
+# Process box color gradient for threads, mem and cpu usage (Cyan -> Blue -> Purple)
+theme[process_start]="#3AA99F"
+theme[process_mid]="#4385BE"
+theme[process_end]="#8B7EC8"
