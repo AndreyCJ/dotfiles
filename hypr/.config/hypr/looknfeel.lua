@@ -32,7 +32,7 @@ hl.config({
     rounding_power = 4,
     rounding = 12, -- 8
 
-    active_opacity = 0.97,
+    active_opacity = 0.98,
     inactive_opacity = 0.95,
 
     blur = {
