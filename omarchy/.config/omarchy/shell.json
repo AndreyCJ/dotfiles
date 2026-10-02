@@ -4,22 +4,26 @@
     "layout": {
       "left": [
         {
-          "colorMode": "bonfire",
-          "id": "io.github.joshz7.afterglow",
-          "showNextButton": true,
-          "sparkIntensity": "full",
-          "spectrumBars": 28
-        },
-        {
           "id": "tornikegomareli.spaces",
-          "showApps": "all",
+          "animations": false,
           "iconStyle": "color",
           "labelStyle": "number",
           "perMonitor": true,
           "previewLive": false,
           "previews": false,
           "scrollSwitch": false,
-          "animations": false
+          "showApps": "all",
+          "iconSize": 17,
+          "dimUnfocused": true,
+          "focusedTitle": false,
+          "hideEmpty": true
+        },
+        {
+          "colorMode": "bonfire",
+          "id": "io.github.joshz7.afterglow",
+          "showNextButton": true,
+          "sparkIntensity": "full",
+          "spectrumBars": 28
         },
         {
           "id": "omarchy.active-window"
@@ -37,6 +41,9 @@
         },
         {
           "id": "omarchy.weather"
+        },
+        {
+          "id": "omarchy.power"
         },
         {
           "id": "njpatel.omapager",
@@ -107,9 +114,6 @@
     "screensaver": 300
   },
   "plugins": [
-    {
-      "id": "io.github.smoothpixels.cursor-accent"
-    },
     {
       "id": "io.github.mtolhuys.fathom"
     }

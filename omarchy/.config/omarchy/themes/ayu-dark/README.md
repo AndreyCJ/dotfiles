@@ -17,3 +17,5 @@ in your terminal.
 
 Mirage version of this theme is available [here](https://github.com/fdidron/omarchy-ayu-mirage-theme).
 Light version of this theme is available [here](https://github.com/fdidron/omarchy-ayu-light-theme).
+
+<!-- Background color changed from #0b0e14 to #100f0f -->

@@ -6,4 +6,4 @@ opencode = "latest"
 pnpm = "latest"
 
 [settings.upgrade]
-auto_prune = false
+auto_prune = true

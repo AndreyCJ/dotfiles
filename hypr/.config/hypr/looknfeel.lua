@@ -50,8 +50,8 @@ hl.config({
       render_power = 2,
       -- color = "rgba(19191099)",
 
-      color = "rgba(219, 108, 79, 0.03)", -- orange
-      -- color = "rgba(191, 193, 224, 0.02)", -- blue
+      -- color = "rgba(219, 108, 79, 0.03)", -- orange
+      color = "rgba(191, 193, 224, 0.02)", -- blue
       color_inactive = "rgba(00000050)", -- MacOS style shadow
 
       -- color = "rgba(20203099)",
