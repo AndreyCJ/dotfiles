@@ -48,10 +48,6 @@ opencode/.config/opencode/herdr-tui-session.js
 
 # Omarchy shell plugin: live checkout managed by `omarchy plugin add`/`omarchy plugin update`
 omarchy/.config/omarchy/plugins/io.github.joshz7.afterglow/
-omarchy/.config/omarchy/plugins/io.github.smoothpixels.cursor-accent/
-# Written by that plugin's tools/install-cursor-hook.sh, and bakes in a
-# per-machine plugin path, so it is generated rather than shared.
-omarchy/.config/omarchy/hooks/*/cursor-accent.sh
 omarchy/.config/omarchy/plugins/thefreshoffice.speaker-calibrator/
 omarchy/.config/omarchy/plugins/njpatel.omapager/
 omarchy/.config/omarchy/plugins/io.github.mtolhuys.fathom/

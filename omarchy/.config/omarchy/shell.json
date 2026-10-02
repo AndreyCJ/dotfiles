@@ -19,10 +19,10 @@
           "hideEmpty": true
         },
         {
-          "colorMode": "bonfire",
           "id": "io.github.joshz7.afterglow",
+          "colorMode": "bonfire",
           "showNextButton": true,
-          "sparkIntensity": "full",
+          "sparkIntensity": "normal",
           "spectrumBars": 28
         },
         {
@@ -41,9 +41,6 @@
         },
         {
           "id": "omarchy.weather"
-        },
-        {
-          "id": "omarchy.power"
         },
         {
           "id": "njpatel.omapager",
@@ -110,8 +107,8 @@
     "omarchy.notifications"
   ],
   "idle": {
-    "lock": 600,
-    "screensaver": 300
+    "lock": 300,
+    "screensaver": 120
   },
   "plugins": [
     {

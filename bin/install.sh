@@ -14,7 +14,6 @@ PACFILE="$DOTFILES/Pacfile"
 
 OMARCHY_PLUGINS=(
   "https://github.com/JoshZ7/omarchy-afterglow.git"
-  "https://github.com/SmoothPixels/cursor-accent.git"
   "https://github.com/njpatel/omapager.git"
   "https://github.com/mtolhuys/fathom.git"
   "https://github.com/gdeyoung/omarchy-powercore.git"
@@ -170,9 +169,6 @@ COMMON_CONFLICTS=(
   "$HOME/.config/nvim"
   "$HOME/.config/yazi"
   "$HOME/.config/herdr"
-  # Only the file, not the whole ~/.config/mise directory: stow owns nothing
-  # else in there, and clearing the directory would take the rest of mise's
-  # state with it.
   "$HOME/.config/mise/config.toml"
 )
 
